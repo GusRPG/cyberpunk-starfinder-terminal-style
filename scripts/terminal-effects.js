@@ -550,7 +550,7 @@ class CyberpunkTerminalEffects {
                 const defaults = {
                     primaryColor: '#009900',
                     secondaryColor: '#006600',
-                    textColor: '#008800',
+                    textColor: '#FF7F00',
                     backgroundColor: '#000000',
                     fontSize: 19,
                     fontFamily: 'mono',
