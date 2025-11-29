@@ -1,34 +1,34 @@
 /**
- * Cyberpunk Terminal Style - Efectos y configuración avanzada
+ * Cyberpunk Terminal Style - Effects and advanced configuration
  */
 
 class CyberpunkTerminalEffects {
-    static MODULE_ID = 'cyberpunk-terminal-style';
-    static MODULE_TITLE = 'Cyberpunk Terminal Style';
+    static MODULE_ID = 'cyberpunk-starfinder-terminal-style';
+    static MODULE_TITLE = 'Cyberpunk Starfinder Terminal Style';
 
     static init() {
-        console.log(`${this.MODULE_TITLE} | Inicializando efectos terminal`);
+        console.log(`${this.MODULE_TITLE} | Initializing terminal effects`);
 
-        // Registrar configuraciones del módulo
+        // Register module settings
         this.registerSettings();
 
-        // Aplicar efectos iniciales
+        // Apply initial effects
         this.applyTerminalEffects();
 
-        // Hook para aplicar efectos cuando se abren ventanas
+        // Hook to apply effects when windows open
         Hooks.on('renderApplication', this.onRenderApplication.bind(this));
 
-        // Hook para recargar estilos cuando cambian las configuraciones
+        // Hook to reload styles when settings change
         Hooks.on('closeSettingsConfig', this.onSettingsClose.bind(this));
     }
 
     static registerSettings() {
-        // === CONFIGURACIONES DE COLOR ===
+        // === COLOR SETTINGS ===
 
-        // Color primario (verde principal)
+        // Primary color (main green)
         game.settings.register(this.MODULE_ID, 'primaryColor', {
-            name: 'Color Primario',
-            hint: 'Color verde principal del tema (formato hex: #00ff00)',
+            name: 'Primary Color',
+            hint: 'Main green theme color (hex format: #00ff00)',
             scope: 'world',
             config: true,
             type: String,
@@ -36,10 +36,10 @@ class CyberpunkTerminalEffects {
             onChange: this.updateColors.bind(this)
         });
 
-        // Color secundario (verde más oscuro)
+        // Secondary color (darker green)
         game.settings.register(this.MODULE_ID, 'secondaryColor', {
-            name: 'Color Secundario',
-            hint: 'Color verde secundario más oscuro (formato hex: #006600)',
+            name: 'Secondary Color',
+            hint: 'Darker secondary green color (hex format: #006600)',
             scope: 'world',
             config: true,
             type: String,
@@ -47,10 +47,10 @@ class CyberpunkTerminalEffects {
             onChange: this.updateColors.bind(this)
         });
 
-        // Color de texto
+        // Text color
         game.settings.register(this.MODULE_ID, 'textColor', {
-            name: 'Color de Texto',
-            hint: 'Color del texto principal (formato hex: #008800)',
+            name: 'Text Color',
+            hint: 'Main text color (hex format: #008800)',
             scope: 'world',
             config: true,
             type: String,
@@ -58,10 +58,10 @@ class CyberpunkTerminalEffects {
             onChange: this.updateColors.bind(this)
         });
 
-        // Color de fondo
+        // Background color
         game.settings.register(this.MODULE_ID, 'backgroundColor', {
-            name: 'Color de Fondo',
-            hint: 'Color de fondo (formato hex: #000000)',
+            name: 'Background Color',
+            hint: 'Background color (hex format: #000000)',
             scope: 'world',
             config: true,
             type: String,
@@ -69,12 +69,12 @@ class CyberpunkTerminalEffects {
             onChange: this.updateColors.bind(this)
         });
 
-        // === CONFIGURACIONES DE FUENTE ===
+        // === FONT SETTINGS ===
 
-        // Tamaño de fuente base
+        // Base font size
         game.settings.register(this.MODULE_ID, 'fontSize', {
-            name: 'Tamaño de Fuente',
-            hint: 'Tamaño de fuente base en píxeles',
+            name: 'Font Size',
+            hint: 'Base font size in pixels',
             scope: 'world',
             config: true,
             type: Number,
@@ -87,15 +87,15 @@ class CyberpunkTerminalEffects {
             onChange: this.updateFontSize.bind(this)
         });
 
-        // Familia de fuente
+        // Font family
         game.settings.register(this.MODULE_ID, 'fontFamily', {
-            name: 'Familia de Fuente',
-            hint: 'Selecciona la fuente para el tema terminal',
+            name: 'Font Family',
+            hint: 'Select the font for the terminal theme',
             scope: 'world',
             config: true,
             type: String,
             choices: {
-                'mono': 'Share Tech Mono (Recomendada)',
+                'mono': 'Share Tech Mono (Recommended)',
                 'courier': 'Courier Prime' ,
                 'consolas': 'Consolas',
                 'menlo': 'Menlo',
@@ -116,56 +116,12 @@ class CyberpunkTerminalEffects {
             onChange: this.updateFontFamily.bind(this)
         });
 
-        // === CONFIGURACIONES DE EFECTOS ===
+        // === EFFECTS SETTINGS ===
 
-        // Configuración para efectos de parpadeo
-        game.settings.register(this.MODULE_ID, 'flickerEffects', {
-            name: 'Efectos de Parpadeo',
-            hint: 'Activa los efectos de parpadeo en el texto terminal',
-            scope: 'world',
-            config: true,
-            type: Boolean,
-            default: true,
-            onChange: this.applyTerminalEffects.bind(this)
-        });
-
-        // Configuración para scanlines
-        game.settings.register(this.MODULE_ID, 'scanlines', {
-            name: 'Líneas de Escaneo',
-            hint: 'Activa las líneas de escaneo estilo CRT',
-            scope: 'world',
-            config: true,
-            type: Boolean,
-            default: true,
-            onChange: this.applyTerminalEffects.bind(this)
-        });
-
-        // Configuración para ruido estático
-        game.settings.register(this.MODULE_ID, 'staticNoise', {
-            name: 'Ruido Estático',
-            hint: 'Añade ruido estático sutil a la pantalla',
-            scope: 'world',
-            config: true,
-            type: Boolean,
-            default: false,
-            onChange: this.applyTerminalEffects.bind(this)
-        });
-
-        // Configuración para sonidos terminal
-        game.settings.register(this.MODULE_ID, 'terminalSounds', {
-            name: 'Sonidos Terminal',
-            hint: 'Activa sonidos de tecleo al escribir',
-            scope: 'world',
-            config: true,
-            type: Boolean,
-            default: false,
-            onChange: this.applyTerminalEffects.bind(this)
-        });
-
-        // Configuración para intensidad del brillo
+        // Glow intensity setting
         game.settings.register(this.MODULE_ID, 'glowIntensity', {
-            name: 'Intensidad del Brillo',
-            hint: 'Controla la intensidad del efecto de brillo verde',
+            name: 'Glow Intensity',
+            hint: 'Controls the intensity of the green glow effect',
             scope: 'world',
             config: true,
             type: Number,
@@ -178,10 +134,10 @@ class CyberpunkTerminalEffects {
             onChange: this.updateGlowIntensity.bind(this)
         });
 
-        // Configuración para velocidad de animaciones
+        // Animation speed setting
         game.settings.register(this.MODULE_ID, 'animationSpeed', {
-            name: 'Velocidad de Animaciones',
-            hint: 'Controla la velocidad de las animaciones (ms)',
+            name: 'Animation Speed',
+            hint: 'Controls the speed of animations (ms)',
             scope: 'world',
             config: true,
             type: Number,
@@ -194,49 +150,49 @@ class CyberpunkTerminalEffects {
             onChange: this.updateAnimationSpeed.bind(this)
         });
 
-        // === CONFIGURACIONES PREESTABLECIDAS ===
+        // === PRESET SETTINGS ===
 
-        // Presets de color
+        // Color presets
         game.settings.register(this.MODULE_ID, 'colorPreset', {
-            name: 'Presets de Color',
-            hint: 'Selecciona un preset de colores predefinido',
+            name: 'Color Presets',
+            hint: 'Select a predefined color preset',
             scope: 'world',
             config: true,
             type: String,
             choices: {
-                'custom': 'Personalizado',
-                'classic-green': 'Verde Clásico',
-                'bright-green': 'Verde Brillante',
-                'dim-green': 'Verde Tenue',
-                'amber': 'Ámbar Retro',
-                'blue': 'Azul Cyberpunk',
-                'red': 'Rojo Matriz',
-                'purple': 'Púrpura Neón',
-                'teal': 'Verde Azulado',
-                'cyan-bright': 'Cian Brillante',
-                'magenta': 'Magenta Retro',
-                'orange-glow': 'Naranja Fosforescente',
-                'yellow-phosphor': 'Amarillo Fósforo',
-                'ice-blue': 'Azul Hielo',
-                'terminal-gray': 'Gris Terminal',
-                'blood-red': 'Rojo Sangre',
-                'toxic-green': 'Verde Tóxico',
-                'violet-neon': 'Violeta Neón'
+                'custom': 'Custom',
+                'classic-green': 'Classic Green',
+                'bright-green': 'Bright Green',
+                'dim-green': 'Dim Green',
+                'amber': 'Retro Amber',
+                'blue': 'Cyberpunk Blue',
+                'red': 'Matrix Red',
+                'purple': 'Neon Purple',
+                'teal': 'Teal',
+                'cyan-bright': 'Bright Cyan',
+                'magenta': 'Retro Magenta',
+                'orange-glow': 'Phosphor Orange',
+                'yellow-phosphor': 'Phosphor Yellow',
+                'ice-blue': 'Ice Blue',
+                'terminal-gray': 'Terminal Gray',
+                'blood-red': 'Blood Red',
+                'toxic-green': 'Toxic Green',
+                'violet-neon': 'Neon Violet'
             },
             default: 'custom',
             onChange: this.applyColorPreset.bind(this)
         });
 
-        // Botón para resetear configuraciones
+        // Button to reset settings
         game.settings.register(this.MODULE_ID, 'resetSettings', {
-            name: 'Resetear Configuración',
-            hint: 'Marca la casilla para resetear todas las configuraciones a valores por defecto',
+            name: 'Reset Settings',
+            hint: 'Check the box to reset all settings to default values',
             scope: 'world',
             config: true,
             type: Boolean,
             default: false,
             onChange: (value) => {
-                // Solo actuar si se cambió a TRUE (marcado)
+                // Only act if changed to TRUE (checked)
                 if (value === true) {
                     this.resetAllSettings();
                 }
@@ -250,7 +206,7 @@ class CyberpunkTerminalEffects {
         const textColor = game.settings.get(this.MODULE_ID, 'textColor');
         const backgroundColor = game.settings.get(this.MODULE_ID, 'backgroundColor');
 
-        // Crear CSS dinámico para colores
+        // Create dynamic CSS for colors
         const style = document.getElementById('terminal-color-style') || document.createElement('style');
         style.id = 'terminal-color-style';
 
@@ -269,13 +225,13 @@ class CyberpunkTerminalEffects {
             document.head.appendChild(style);
         }
 
-        this.updateGlowIntensity(); // Actualizar glow con nuevos colores
+        this.updateGlowIntensity(); // Update glow with new colors
     }
 
     static updateFontSize() {
         const fontSize = game.settings.get(this.MODULE_ID, 'fontSize');
 
-        // Crear CSS dinámico para el tamaño de fuente
+        // Create dynamic CSS for font size
         const style = document.getElementById('terminal-font-size-style') || document.createElement('style');
         style.id = 'terminal-font-size-style';
 
@@ -353,7 +309,7 @@ class CyberpunkTerminalEffects {
                 fontStack = "'Courier Prime', 'Share Tech Mono', monospace";
         }
 
-        // Crear CSS dinámico para la fuente
+        // Create dynamic CSS for font
         const style = document.getElementById('terminal-font-family-style') || document.createElement('style');
         style.id = 'terminal-font-family-style';
 
@@ -371,7 +327,7 @@ class CyberpunkTerminalEffects {
     static applyColorPreset() {
         const preset = game.settings.get(this.MODULE_ID, 'colorPreset');
 
-        if (preset === 'custom') return; // No cambiar si es personalizado
+        if (preset === 'custom') return; // Don't change if custom
 
         const presets = {
             'classic-green': {
@@ -481,45 +437,28 @@ class CyberpunkTerminalEffects {
         if (presets[preset]) {
             const colors = presets[preset];
 
-            // Actualizar configuraciones
+            // Update settings
             game.settings.set(this.MODULE_ID, 'primaryColor', colors.primary);
             game.settings.set(this.MODULE_ID, 'secondaryColor', colors.secondary);
             game.settings.set(this.MODULE_ID, 'textColor', colors.text);
             game.settings.set(this.MODULE_ID, 'backgroundColor', colors.background);
 
-            // Aplicar colores
+            // Apply colors
             this.updateColors();
 
-            ui.notifications.info(`Preset de color "${preset}" aplicado.`);
+            ui.notifications.info(`Color preset "${preset}" applied.`);
         }
     }
 
     static applyTerminalEffects() {
         const body = document.body;
 
-        // Limpiar clases anteriores
-        body.classList.remove('terminal-effects-enabled', 'terminal-static-enabled');
-
-        // Aplicar efectos según configuración
-        if (game.settings.get(this.MODULE_ID, 'flickerEffects')) {
-            body.classList.add('terminal-effects-enabled');
-        }
-
-        if (game.settings.get(this.MODULE_ID, 'staticNoise')) {
-            body.classList.add('terminal-static-enabled');
-        }
-
-        // Aplicar todas las configuraciones
+        // Apply all settings
         this.updateColors();
         this.updateFontSize();
         this.updateFontFamily();
         this.updateGlowIntensity();
         this.updateAnimationSpeed();
-
-        // Inicializar sonidos si están habilitados
-        if (game.settings.get(this.MODULE_ID, 'terminalSounds')) {
-            this.initTerminalSounds();
-        }
     }
 
     static updateGlowIntensity() {
@@ -576,10 +515,10 @@ class CyberpunkTerminalEffects {
 
     static resetAllSettings() {
         Dialog.confirm({
-            title: "Resetear Configuración",
-            content: "<p>¿Estás seguro de que quieres resetear todas las configuraciones a los valores por defecto?</p>",
+            title: "Reset Settings",
+            content: "<p>Are you sure you want to reset all settings to default values?</p>",
             render: (html) => {
-                // Aplicar estilos para hacer el diálogo más alto y menos ancho sin scrollbar
+                // Apply styles to make the dialog taller and narrower without scrollbar
                 const dialog = html.closest('.dialog');
                 if (dialog.length) {
                     dialog.css({
@@ -607,7 +546,7 @@ class CyberpunkTerminalEffects {
                 }
             },
             yes: () => {
-                // Valores por defecto
+                // Default values
                 const defaults = {
                     primaryColor: '#009900',
                     secondaryColor: '#006600',
@@ -615,93 +554,66 @@ class CyberpunkTerminalEffects {
                     backgroundColor: '#000000',
                     fontSize: 19,
                     fontFamily: 'mono',
-                    flickerEffects: true,
-                    scanlines: true,
-                    staticNoise: false,
-                    terminalSounds: false,
-                    glowIntensity: 50,
+                    glowIntensity: 10,
                     animationSpeed: 150,
                     colorPreset: 'custom'
                 };
 
-                // Aplicar valores por defecto
+                // Apply default values
                 Object.entries(defaults).forEach(([key, value]) => {
                     game.settings.set(this.MODULE_ID, key, value);
                 });
 
-                // Desmarcar el checkbox después de completar el reset
+                // Uncheck the checkbox after completing the reset
                 game.settings.set(this.MODULE_ID, 'resetSettings', false);
 
-                // Recargar efectos
+                // Reload effects
                 this.applyTerminalEffects();
 
-                ui.notifications.info("Configuración reseteada a valores por defecto.");
+                ui.notifications.info("Settings reset to default values.");
             },
             no: () => {
-                // Desmarcar el checkbox si se cancela
+                // Uncheck the checkbox if canceled
                 game.settings.set(this.MODULE_ID, 'resetSettings', false);
             },
             defaultYes: false
         });
     }
 
-    static initTerminalSounds() {
-        // Crear sonidos de tecleo (simplificado para el ejemplo)
-        const sounds = {
-            keypress: new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBDOO0/PQfin'),
-            enter: new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBDOO0/PQfin')
-        };
-
-        // Añadir event listeners para sonidos de tecleo
-        document.addEventListener('keydown', (event) => {
-            if (event.target.matches('input, textarea') &&
-                game.settings.get(this.MODULE_ID, 'terminalSounds')) {
-
-                if (event.key === 'Enter') {
-                    sounds.enter.currentTime = 0;
-                    sounds.enter.play().catch(() => { });
-                } else if (event.key.length === 1) {
-                    sounds.keypress.currentTime = 0;
-                    sounds.keypress.play().catch(() => { });
-                }
-            }
-        });
-    }
-
     static onRenderApplication(app, html, data) {
-        // Aplicar clase cyberpunk a nuevas ventanas
+        // Apply cyberpunk class to new windows
         html.addClass('cyberpunk');
     }
 
     static onSettingsClose() {
-        // Recargar efectos cuando se cierre la configuración
+        // Reload effects when settings are closed
         setTimeout(() => {
             this.applyTerminalEffects();
         }, 100);
     }
 
-    // Función auxiliar para oscurecer colores
+    // Helper function to darken colors
     static darkenColor(color, factor) {
-        // Convertir hex a RGB
+        // Convert hex to RGB
         const hex = color.replace('#', '');
         const r = parseInt(hex.substr(0, 2), 16);
         const g = parseInt(hex.substr(2, 2), 16);
         const b = parseInt(hex.substr(4, 2), 16);
 
-        // Oscurecer
+        // Darken
         const newR = Math.floor(r * factor);
         const newG = Math.floor(g * factor);
         const newB = Math.floor(b * factor);
 
-        // Convertir de vuelta a hex
+        // Convert back to hex
         return `#${newR.toString(16).padStart(2, '0')}${newG.toString(16).padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
     }
 }
 
-// Inicializar cuando Foundry esté listo
+// Initialize when Foundry is ready
 Hooks.once('init', () => {
     CyberpunkTerminalEffects.init();
 });
 
-// Exportar para uso en otros archivos si es necesario
+// Export for use in other files if necessary
 window.CyberpunkTerminalEffects = CyberpunkTerminalEffects;
