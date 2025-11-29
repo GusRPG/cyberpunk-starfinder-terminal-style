@@ -99,8 +99,8 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   color: inherit !important;
 }
 
-/* === COMPLETE BLACK BACKGROUND FOR CHAT - MAXIMUM AGGRESSIVENESS === */
-/* Force ALL chat to black - nuclear method */
+
+
 #chat,
 #chat *,
 #chat-log,
@@ -114,6 +114,11 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-image: none !important;
 }
 
+.app.window-app {
+  border: 2px solid var(--terminal-primary) !important;
+  box-shadow: var(--terminal-glow) !important;
+}
+
 #chat {
   border: 2px solid var(--terminal-border) !important;
   box-shadow: var(--terminal-glow) !important;
@@ -123,6 +128,14 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   color: var(--terminal-text) !important;
   font-family: var(--terminal-font) !important;
   font-size: var(--terminal-font-size) !important;
+}
+
+.message-sender {
+  color: var(--terminal-primary) !important;
+}
+
+.message-timestamp {
+  color: var(--terminal-primary) !important;
 }
 
 /* NUCLEAR OVERRIDE FOR BACKGROUND - Apply to absolutely EVERYTHING in chat */
@@ -264,28 +277,13 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-color: var(--terminal-text) !important;
 }
 
-.message-sender {
-  color: var(--terminal-primary) !important;
+.dice-tray__button {
+  background-color: var(--terminal-bg) !important;
+  border: 1px solid var(--terminal-border) !important;
 }
 
-.flavor-text {
-  color: var(--terminal-text) !important;
-}
-
-.whisper-to {
-  color: var(--terminal-primary) !important;
-}
-
-.message-metadata {
-  color: var(--terminal-primary) !important;
-}
-
-.message-timestamp {
-  color: var(--terminal-primary) !important;
-}
-
-.message-delete i {
-  color: var(--terminal-primary) !important;
+.dice-tray__button .dice {
+  background-color: var(--terminal-text) !important;
 }
 
 .message-content {
@@ -1191,4 +1189,12 @@ nav.tabs .item,
   :root {
     --terminal-font-size: 18px;
   }
+}
+
+
+
+*,
+*::before,
+*::after {
+  border-color: var(--terminal-border) !important;
 }
