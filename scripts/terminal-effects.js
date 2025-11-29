@@ -35,29 +35,101 @@ class CyberpunkTerminalEffects {
             config: true,
             type: String,
             choices: {
-                'custom': 'Custom',
-                'classic-green': 'Classic Green',
-                'classic-green-orange': 'Classic Green-Orange',
-                'bright-green': 'Bright Green',
-                'dim-green': 'Dim Green',
-                'amber': 'Retro Amber',
-                'blue': 'Cyberpunk Blue',
-                'red': 'Matrix Red',
-                'purple': 'Neon Purple',
-                'teal': 'Teal',
-                'cyan-bright': 'Bright Cyan',
-                'magenta': 'Retro Magenta',
-                'orange-glow': 'Phosphor Orange',
-                'yellow-phosphor': 'Phosphor Yellow',
-                'ice-blue': 'Ice Blue',
-                'terminal-gray': 'Terminal Gray',
-                'blood-red': 'Blood Red',
-                'toxic-green': 'Toxic Green',
-                'violet-neon': 'Neon Violet'
+                'custom': 'Custom ⚙️',
+
+                // Classic primero
+                'classic-green': 'Classic Green 🟢',
+                'classic-green-orange': 'Classic Green-Orange 🟠',
+
+                // Resto ordenados alfabéticamente
+                'amber': 'Retro Amber 🟠',
+                'black-ice': 'Black Ice ❄️',
+                'blood-red': 'Blood Red 🩸',
+                'blue': 'Cyberpunk Blue 🔵',
+                'bright-green': 'Bright Green 💚',
+                'circuit-blue': 'Circuit Blue 🖥️',
+                'cold-steel': 'Cold Steel 🧊',
+                'corpo-silver': 'Corpo Silver ⚪',
+                'cyan-bright': 'Bright Cyan 🔷',
+                'deep-violet': 'Deep Violet 🔮',
+                'dim-green': 'Dim Green 🌿',
+                'ember-orange': 'Ember Orange 🔥',
+                'ghost-white': 'Ghost White ⚪',
+                'glitch-pink': 'Glitch Pink 🌀',
+                'holo-cyan': 'Holo Cyan 🟦',
+                'ice-blue': 'Ice Blue 🧊',
+                'infrared': 'Infrared 🌡️',
+                'magenta': 'Retro Magenta 💗',
+                'neon-gold': 'Neon Gold 🌕',
+                'night-ops': 'Night Ops 🌌',
+                'orange-glow': 'Phosphor Orange 🟠',
+                'plasma-green': 'Plasma Green 💚',
+                'purple': 'Neon Purple 🟣',
+                'quantum-blue': 'Quantum Blue 🔹',
+                'red': 'Matrix Red 🔴',
+                'retro-green': 'Retro Green 💚',
+                'shadow-purple': 'Shadow Purple 🟪',
+                'signal-orange': 'Signal Orange 🟧',
+                'synthetic-cyan': 'Synthetic Cyan 🟦',
+                'teal': 'Teal 🟦',
+                'terminal-gray': 'Terminal Gray ⚫️',
+                'toxic-green': 'Toxic Green ☣️',
+                'violet-neon': 'Neon Violet 🟣',
+                'void-black': 'Void Black ⚫️',
+                'warpaint-red': 'Warpaint Red 🩸',
+                'yellow-phosphor': 'Phosphor Yellow 🟡'
             },
             default: 'custom',
             onChange: this.applyColorPreset.bind(this)
         });
+
+        // === FONT SETTINGS ===
+
+        // Font family
+        game.settings.register(this.MODULE_ID, 'fontFamily', {
+            name: 'Font Family',
+            hint: 'Select the font for the terminal theme',
+            scope: 'world',
+            config: true,
+            type: String,
+            choices: {
+                'mono': 'Share Tech Mono (Recommended)',
+                'courier': 'Courier Prime',
+                'consolas': 'Consolas',
+                'menlo': 'Menlo',
+                'monaco': 'Monaco',
+                'ubuntu': 'Ubuntu Mono',
+                'roboto-mono': 'Roboto Mono',
+                'pt-mono': 'PT Mono',
+                'space-mono': 'Space Mono',
+                'ibm-plex-mono': 'IBM Plex Mono',
+                'fira-mono': 'Fira Mono',
+                'jetbrains-mono': 'JetBrains Mono',
+                'cutive-mono': 'Cutive Mono',
+                'overpass-mono': 'Overpass Mono',
+                'press-start': 'Press Start 2P',
+                'vt323': 'VT323'
+            },
+            default: 'mono',
+            onChange: this.updateFontFamily.bind(this)
+        });
+
+        // Base font size
+        game.settings.register(this.MODULE_ID, 'fontSize', {
+            name: 'Font Size',
+            hint: 'Base font size in pixels',
+            scope: 'world',
+            config: true,
+            type: Number,
+            range: {
+                min: 12,
+                max: 36,
+                step: 1
+            },
+            default: 22,
+            onChange: this.updateFontSize.bind(this)
+        });
+
 
         // === EFFECTS SETTINGS ===
 
@@ -96,10 +168,10 @@ class CyberpunkTerminalEffects {
 
         // === CUSTOM COLOR SETTINGS ===
 
-        // Primary color (main green)
-        game.settings.register(this.MODULE_ID, 'primaryColor', {
-            name: 'Primary Color',
-            hint: 'Main green theme color (hex format: #00ff00)',
+        // Border color
+        game.settings.register(this.MODULE_ID, 'borderColor', {
+            name: 'Border Color',
+            hint: 'Set the color used for borders in the interface.',
             scope: 'world',
             config: true,
             type: String,
@@ -107,21 +179,32 @@ class CyberpunkTerminalEffects {
             onChange: this.updateColors.bind(this)
         });
 
-        // Secondary color (darker green)
-        game.settings.register(this.MODULE_ID, 'secondaryColor', {
-            name: 'Secondary Color',
-            hint: 'Darker secondary green color (hex format: #006600)',
+        // Main UI text color
+        game.settings.register(this.MODULE_ID, 'mainTextColor', {
+            name: 'Text Color',
+            hint: 'Main UI text color',
             scope: 'world',
             config: true,
             type: String,
-            default: '#006600',
+            default: '#008800',
             onChange: this.updateColors.bind(this)
         });
 
-        // Text color
-        game.settings.register(this.MODULE_ID, 'textColor', {
-            name: 'Text Color',
-            hint: 'Main text color (hex format: #008800)',
+        // Foundry Menu and Icons text color
+        game.settings.register(this.MODULE_ID, 'foundryMenuIconColor', {
+            name: 'Foundry Menu and Icons text color',
+            hint: 'Foundry Menu and Icons text color',
+            scope: 'world',
+            config: true,
+            type: String,
+            default: '#008800',
+            onChange: this.updateColors.bind(this)
+        });
+
+        // Console Log Color
+        game.settings.register(this.MODULE_ID, 'consoleLogColor', {
+            name: 'Console Log Color',
+            hint: 'Console Log Color',
             scope: 'world',
             config: true,
             type: String,
@@ -132,7 +215,7 @@ class CyberpunkTerminalEffects {
         // Background color
         game.settings.register(this.MODULE_ID, 'backgroundColor', {
             name: 'Background Color',
-            hint: 'Background color (hex format: #000000)',
+            hint: 'Background color',
             scope: 'world',
             config: true,
             type: String,
@@ -140,58 +223,11 @@ class CyberpunkTerminalEffects {
             onChange: this.updateColors.bind(this)
         });
 
-        // === FONT SETTINGS ===
 
-        // Base font size
-        game.settings.register(this.MODULE_ID, 'fontSize', {
-            name: 'Font Size',
-            hint: 'Base font size in pixels',
-            scope: 'world',
-            config: true,
-            type: Number,
-            range: {
-                min: 12,
-                max: 36,
-                step: 1
-            },
-            default: 22,
-            onChange: this.updateFontSize.bind(this)
-        });
-
-        // Font family
-        game.settings.register(this.MODULE_ID, 'fontFamily', {
-            name: 'Font Family',
-            hint: 'Select the font for the terminal theme',
-            scope: 'world',
-            config: true,
-            type: String,
-            choices: {
-                'mono': 'Share Tech Mono (Recommended)',
-                'courier': 'Courier Prime',
-                'consolas': 'Consolas',
-                'menlo': 'Menlo',
-                'monaco': 'Monaco',
-                'ubuntu': 'Ubuntu Mono',
-                'roboto-mono': 'Roboto Mono',
-                'pt-mono': 'PT Mono',
-                'space-mono': 'Space Mono',
-                'ibm-plex-mono': 'IBM Plex Mono',
-                'fira-mono': 'Fira Mono',
-                'jetbrains-mono': 'JetBrains Mono',
-                'cutive-mono': 'Cutive Mono',
-                'overpass-mono': 'Overpass Mono',
-                'press-start': 'Press Start 2P',
-                'vt323': 'VT323'
-            },
-            default: 'mono',
-            onChange: this.updateFontFamily.bind(this)
-        });
-
-        
         // Button to reset settings
         game.settings.register(this.MODULE_ID, 'resetSettings', {
-            name: 'Reset Settings',
-            hint: 'Check the box to reset all settings to default values',
+            name: '**Reset style to default**',
+            hint: 'Check this box and click Save changes to reset all settings.',
             scope: 'world',
             config: true,
             type: Boolean,
@@ -206,10 +242,12 @@ class CyberpunkTerminalEffects {
     }
 
     static updateColors() {
-        const primaryColor = game.settings.get(this.MODULE_ID, 'primaryColor');
-        const secondaryColor = game.settings.get(this.MODULE_ID, 'secondaryColor');
-        const textColor = game.settings.get(this.MODULE_ID, 'textColor');
+        const borderColor = game.settings.get(this.MODULE_ID, 'borderColor');
+        const consoleLogColor = game.settings.get(this.MODULE_ID, 'consoleLogColor');
+        const foundryMenuIconColor = game.settings.get(this.MODULE_ID, 'foundryMenuIconColor');
         const backgroundColor = game.settings.get(this.MODULE_ID, 'backgroundColor');
+        const mainTextColor = game.settings.get(this.MODULE_ID, 'mainTextColor');
+
 
         // Create dynamic CSS for colors
         const style = document.getElementById('terminal-color-style') || document.createElement('style');
@@ -218,11 +256,11 @@ class CyberpunkTerminalEffects {
         style.textContent = `
             :root {
                 --terminal-bg: ${backgroundColor} !important;
-                --terminal-primary: ${primaryColor} !important;
-                --terminal-secondary: ${secondaryColor} !important;
-                --terminal-dim: ${this.darkenColor(secondaryColor, 0.5)} !important;
-                --terminal-text: ${textColor} !important;
-                --terminal-border: ${textColor} !important;
+                --terminal-primary: ${foundryMenuIconColor} !important;
+                --terminal-secondary: ${consoleLogColor} !important;
+                --terminal-dim: ${consoleLogColor} !important;
+                --terminal-text: ${mainTextColor} !important; 
+                --terminal-border: ${borderColor} !important;
             }
         `;
 
@@ -335,125 +373,291 @@ class CyberpunkTerminalEffects {
         if (preset === 'custom') return; // Don't change if custom
 
         const presets = {
-            'amber': {
-                primary: '#ffaa00',
-                secondary: '#cc8800',
-                text: '#ee9900',
-                background: '#110800'
-            },
-            'blood-red': {
-                primary: '#ff3333',
-                secondary: '#cc2222',
-                text: '#dd2222',
-                background: '#1a0000'
-            },
-            'blue': {
-                primary: '#0099ff',
-                secondary: '#0077cc',
-                text: '#0088ee',
-                background: '#001122'
-            },
+            // === CLASSIC FIRST ===
             'classic-green': {
-                primary: '#00ff00',
-                secondary: '#00cc00',
-                text: '#00dd00',
-                background: '#000000'
+                border: '#00ff00',
+                console: '#00cc00',
+                text: '#99ff99',
+                background: '#000000',
+                foundryMenuIcon: '#ccffcc'
             },
             'classic-green-orange': {
-                primary: '#FF7F00',
-                secondary: '#00cc00',
-                text: '#00dd00',
-                background: '#000000'
+                border: '#00ff33',
+                console: '#00aa22',
+                text: '#ff7f1a',
+                background: '#000000',
+                foundryMenuIcon: '#ffb366'
             },
-            'cyan-bright': {
-                primary: '#00e5ff',
-                secondary: '#00b3cc',
-                text: '#00cce0',
-                background: '#00141a'
+
+            // === REST ORDERED ALPHA ===
+            'amber': {
+                border: '#ffaa00',
+                console: '#cc8800',
+                text: '#ffe6b3',
+                background: '#110800',
+                foundryMenuIcon: '#fff0cc'
             },
-            'dim-green': {
-                primary: '#006600',
-                secondary: '#004400',
-                text: '#005500',
-                background: '#000000'
+            'black-ice': {                     // NEW 1
+                border: '#66ccff',
+                console: '#3399cc',
+                text: '#aaddff',
+                background: '#000611',
+                foundryMenuIcon: '#cce9ff'
             },
-            'ice-blue': {
-                primary: '#66ffff',
-                secondary: '#44cccc',
-                text: '#55eeee',
-                background: '#001111'
+            'blood-red': {
+                border: '#ff3333',
+                console: '#cc2222',
+                text: '#ff9999',
+                background: '#1a0000',
+                foundryMenuIcon: '#ffb3b3'
             },
-            'magenta': {
-                primary: '#ff00ff',
-                secondary: '#cc00cc',
-                text: '#dd00dd',
-                background: '#1a001a'
-            },
-            'orange-glow': {
-                primary: '#ff6600',
-                secondary: '#cc5200',
-                text: '#ee5500',
-                background: '#1a0d00'
-            },
-            'purple': {
-                primary: '#cc00ff',
-                secondary: '#9900cc',
-                text: '#bb00ee',
-                background: '#110022'
-            },
-            'red': {
-                primary: '#ff0066',
-                secondary: '#cc0044',
-                text: '#ee0055',
-                background: '#110011'
-            },
-            'teal': {
-                primary: '#00ffee',
-                secondary: '#00ccbb',
-                text: '#00ddcc',
-                background: '#001111'
-            },
-            'terminal-gray': {
-                primary: '#bbbbbb',
-                secondary: '#888888',
-                text: '#aaaaaa',
-                background: '#000000'
-            },
-            'toxic-green': {
-                primary: '#99ff00',
-                secondary: '#77cc00',
-                text: '#88ee00',
-                background: '#0d1a00'
-            },
-            'violet-neon': {
-                primary: '#ff33cc',
-                secondary: '#cc2299',
-                text: '#ee22aa',
-                background: '#1a0011'
+            'blue': {
+                border: '#0099ff',
+                console: '#0077cc',
+                text: '#99d6ff',
+                background: '#001122',
+                foundryMenuIcon: '#cceaff'
             },
             'bright-green': {
-                primary: '#00ff66',
-                secondary: '#00cc44',
-                text: '#00ee55',
-                background: '#001100'
+                border: '#00ff66',
+                console: '#00cc44',
+                text: '#99ffcc',
+                background: '#001100',
+                foundryMenuIcon: '#ccffe6'
+            },
+            'circuit-blue': {                 // NEW 2
+                border: '#33ccff',
+                console: '#2299cc',
+                text: '#99e6ff',
+                background: '#000d1a',
+                foundryMenuIcon: '#ccefff'
+            },
+            'cold-steel': {                   // NEW 3
+                border: '#88aaff',
+                console: '#6688cc',
+                text: '#ccd5ff',
+                background: '#0a0a12',
+                foundryMenuIcon: '#dde4ff'
+            },
+            'corpo-silver': {                 // NEW 4
+                border: '#cccccc',
+                console: '#999999',
+                text: '#eeeeee',
+                background: '#0d0d0d',
+                foundryMenuIcon: '#ffffff'
+            },
+            'cyan-bright': {
+                border: '#00e5ff',
+                console: '#00b3cc',
+                text: '#99f3ff',
+                background: '#00141a',
+                foundryMenuIcon: '#ccf9ff'
+            },
+            'deep-violet': {                  // NEW 5
+                border: '#aa33ff',
+                console: '#771fcc',
+                text: '#d8a6ff',
+                background: '#0d001a',
+                foundryMenuIcon: '#e8ccff'
+            },
+            'dim-green': {
+                border: '#006600',
+                console: '#004400',
+                text: '#66cc66',
+                background: '#000000',
+                foundryMenuIcon: '#99e699'
+            },
+            'ember-orange': {                 // NEW 6
+                border: '#ff9933',
+                console: '#cc7722',
+                text: '#ffd9b3',
+                background: '#1a0d00',
+                foundryMenuIcon: '#ffe6cc'
+            },
+            'ghost-white': {                  // NEW 7
+                border: '#eeeeee',
+                console: '#cccccc',
+                text: '#ffffff',
+                background: '#121212',
+                foundryMenuIcon: '#ffffff'
+            },
+            'glitch-pink': {                  // NEW 8
+                border: '#ff66cc',
+                console: '#cc4fa3',
+                text: '#ffb3e6',
+                background: '#1a0014',
+                foundryMenuIcon: '#ffd6f2'
+            },
+            'holo-cyan': {                    // NEW 9
+                border: '#33ffff',
+                console: '#22cccc',
+                text: '#99ffff',
+                background: '#001414',
+                foundryMenuIcon: '#ccffff'
+            },
+            'ice-blue': {
+                border: '#66ffff',
+                console: '#44cccc',
+                text: '#ccffff',
+                background: '#001111',
+                foundryMenuIcon: '#e6ffff'
+            },
+            'infrared': {                     // NEW 10
+                border: '#ff3344',
+                console: '#cc222f',
+                text: '#ff99a5',
+                background: '#1a0003',
+                foundryMenuIcon: '#ffb3bd'
+            },
+            'magenta': {
+                border: '#ff00ff',
+                console: '#cc00cc',
+                text: '#ff99ff',
+                background: '#1a001a',
+                foundryMenuIcon: '#ffccff'
+            },
+            'neon-gold': {                    // NEW 11
+                border: '#ffdd33',
+                console: '#ccaa22',
+                text: '#ffee99',
+                background: '#1a1700',
+                foundryMenuIcon: '#fff2cc'
+            },
+            'night-ops': {                    // NEW 12
+                border: '#88ffcc',
+                console: '#66cca3',
+                text: '#ccffe6',
+                background: '#000d08',
+                foundryMenuIcon: '#e6fff3'
+            },
+            'orange-glow': {
+                border: '#ff6600',
+                console: '#cc5200',
+                text: '#ffbb99',
+                background: '#1a0d00',
+                foundryMenuIcon: '#ffd6cc'
+            },
+            'plasma-green': {                 // NEW 13
+                border: '#77ff55',
+                console: '#55cc33',
+                text: '#caffb8',
+                background: '#061a00',
+                foundryMenuIcon: '#e1ffd8'
+            },
+            'purple': {
+                border: '#cc00ff',
+                console: '#9900cc',
+                text: '#e699ff',
+                background: '#110022',
+                foundryMenuIcon: '#f2ccff'
+            },
+            'quantum-blue': {                 // NEW 14
+                border: '#44aaff',
+                console: '#2288cc',
+                text: '#b3d9ff',
+                background: '#000a19',
+                foundryMenuIcon: '#d6eaff'
+            },
+            'red': {
+                border: '#ff0066',
+                console: '#cc0044',
+                text: '#ff99bb',
+                background: '#110011',
+                foundryMenuIcon: '#ffccdd'
+            },
+            'retro-green': {                  // NEW 15
+                border: '#55ff55',
+                console: '#33cc33',
+                text: '#b3ffb3',
+                background: '#000a00',
+                foundryMenuIcon: '#d6ffd6'
+            },
+            'shadow-purple': {                // NEW 16
+                border: '#aa00ff',
+                console: '#7700cc',
+                text: '#d699ff',
+                background: '#0d0014',
+                foundryMenuIcon: '#ebccff'
+            },
+            'signal-orange': {                // NEW 17
+                border: '#ff8844',
+                console: '#cc6a33',
+                text: '#ffd6bb',
+                background: '#1a0f06',
+                foundryMenuIcon: '#ffe6d1'
+            },
+            'synthetic-cyan': {               // NEW 18
+                border: '#00ffee',
+                console: '#00bbcc',
+                text: '#99fff7',
+                background: '#001212',
+                foundryMenuIcon: '#ccfffa'
+            },
+            'teal': {
+                border: '#00ffee',
+                console: '#00ccbb',
+                text: '#99fff7',
+                background: '#001111',
+                foundryMenuIcon: '#ccfffa'
+            },
+            'terminal-gray': {
+                border: '#bbbbbb',
+                console: '#888888',
+                text: '#eeeeee',
+                background: '#000000',
+                foundryMenuIcon: '#ffffff'
+            },
+            'toxic-green': {
+                border: '#99ff00',
+                console: '#77cc00',
+                text: '#ccff99',
+                background: '#0d1a00',
+                foundryMenuIcon: '#e6ffcc'
+            },
+            'violet-neon': {
+                border: '#ff33cc',
+                console: '#cc2299',
+                text: '#ff99e6',
+                background: '#1a0011',
+                foundryMenuIcon: '#ffccee'
             },
             'yellow-phosphor': {
-                primary: '#ffff66',
-                secondary: '#cccc44',
-                text: '#eeee55',
-                background: '#111100'
-            }
+                border: '#ffff66',
+                console: '#cccc44',
+                text: '#ffffcc',
+                background: '#111100',
+                foundryMenuIcon: '#ffffe6'
+            },
 
+            // NEW 19
+            'void-black': {
+                border: '#555555',
+                console: '#333333',
+                text: '#cccccc',
+                background: '#000000',
+                foundryMenuIcon: '#e6e6e6'
+            },
+
+            // NEW 20
+            'warpaint-red': {
+                border: '#ff1122',
+                console: '#cc0e19',
+                text: '#ff99a3',
+                background: '#120002',
+                foundryMenuIcon: '#ffccd1'
+            }
         };
+
 
         if (presets[preset]) {
             const colors = presets[preset];
 
             // Update settings
-            game.settings.set(this.MODULE_ID, 'primaryColor', colors.primary);
-            game.settings.set(this.MODULE_ID, 'secondaryColor', colors.secondary);
-            game.settings.set(this.MODULE_ID, 'textColor', colors.text);
+            game.settings.set(this.MODULE_ID, 'borderColor', colors.border);
+            game.settings.set(this.MODULE_ID, 'consoleLogColor', colors.console);
+            game.settings.set(this.MODULE_ID, 'foundryMenuIconColor', colors.foundryMenuIcon);
             game.settings.set(this.MODULE_ID, 'backgroundColor', colors.background);
+            game.settings.set(this.MODULE_ID, 'mainTextColor', colors.text);
 
             // Apply colors
             this.updateColors();
@@ -475,7 +679,7 @@ class CyberpunkTerminalEffects {
 
     static updateGlowIntensity() {
         const intensity = game.settings.get(this.MODULE_ID, 'glowIntensity') || 50;
-        const primaryColor = game.settings.get(this.MODULE_ID, 'primaryColor') || '#0f0';
+        const borderColor = game.settings.get(this.MODULE_ID, 'borderColor') || '#0f0';
         const glowValue = intensity * 0.3;
 
         let style = document.getElementById('terminal-glow-style');
@@ -488,10 +692,10 @@ class CyberpunkTerminalEffects {
 
         style.textContent = `
             :root {
-                --terminal-glow: 0 0 ${3 * glowValue}px ${primaryColor}, 
-                                0 0 ${6 * glowValue}px ${primaryColor}, 
-                                0 0 ${9 * glowValue}px ${primaryColor};
-                --terminal-text-shadow: 0 0 ${2 * glowValue}px ${primaryColor};
+                --terminal-glow: 0 0 ${3 * glowValue}px ${borderColor}, 
+                                0 0 ${6 * glowValue}px ${borderColor}, 
+                                0 0 ${9 * glowValue}px ${borderColor};
+                --terminal-text-shadow: 0 0 ${2 * glowValue}px ${borderColor};
             }
         `;
     }
@@ -560,10 +764,11 @@ class CyberpunkTerminalEffects {
             yes: () => {
                 // Default values
                 const defaults = {
-                    primaryColor: '#009900',
-                    secondaryColor: '#006600',
-                    textColor: '#008800',
+                    borderColor: '#009900',
+                    consoleLogColor: '#006600',
+                    foundryMenuIconColor: '#008800',
                     backgroundColor: '#000000',
+                    mainTextColor: '#008800',
                     fontSize: 19,
                     fontFamily: 'mono',
                     glowIntensity: 10,

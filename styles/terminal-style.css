@@ -260,6 +260,38 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background: var(--terminal-bg) !important;
 }
 
+.dice {
+  background-color: var(--terminal-text) !important;
+}
+
+.message-sender {
+  color: var(--terminal-primary) !important;
+}
+
+.flavor-text {
+  color: var(--terminal-text) !important;
+}
+
+.whisper-to {
+  color: var(--terminal-primary) !important;
+}
+
+.message-metadata {
+  color: var(--terminal-primary) !important;
+}
+
+.message-timestamp {
+  color: var(--terminal-primary) !important;
+}
+
+.message-delete i {
+  color: var(--terminal-primary) !important;
+}
+
+.message-content {
+  color: var(--terminal-text) !important;
+}
+
 #chat-log > * > * > * > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
@@ -272,7 +304,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 
 #chat-message {
   background-color: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
   border: 1px solid var(--terminal-border) !important;
   font-family: var(--terminal-font) !important;
   font-size: var(--terminal-font-size) !important;
@@ -666,6 +698,22 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   color: var(--terminal-text) !important;
 }
 
+/* Additional aggressive rules for normal text in forms and windows */
+.window-content label,
+.window-content p,
+.window-content span,
+.window-content div:not(.message-header):not(.message-sender):not(header),
+.form-group label,
+.form-group span,
+.form-group p,
+.form-group div,
+.dialog-content label,
+.dialog-content p,
+.dialog-content span,
+.dialog-content div {
+  color: var(--terminal-text) !important;
+}
+
 /* === ICONS WITH SPECIFIC COLORS === */
 /* Delete icons - Bright red */
 a[data-action="delete"] i,
@@ -909,7 +957,7 @@ i:not([class*="fa-"]):not(.colored-icon),
 .cyberpunk h1.title > input {
   background-color: transparent;
   border: none;
-  color: var(--terminal-primary);
+  color: var(--terminal-text);
   font-family: var(--terminal-font);
   font-size: calc(var(--terminal-font-size) + 4px) !important;
   font-weight: bold;
