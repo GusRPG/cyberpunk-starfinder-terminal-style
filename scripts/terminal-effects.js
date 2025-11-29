@@ -23,7 +23,78 @@ class CyberpunkTerminalEffects {
     }
 
     static registerSettings() {
-        // === COLOR SETTINGS ===
+
+
+        // === PRESET SETTINGS ===
+
+        // Color presets
+        game.settings.register(this.MODULE_ID, 'colorPreset', {
+            name: 'Color Presets',
+            hint: 'Select a predefined color preset',
+            scope: 'world',
+            config: true,
+            type: String,
+            choices: {
+                'custom': 'Custom',
+                'classic-green': 'Classic Green',
+                'classic-green-orange': 'Classic Green-Orange',
+                'bright-green': 'Bright Green',
+                'dim-green': 'Dim Green',
+                'amber': 'Retro Amber',
+                'blue': 'Cyberpunk Blue',
+                'red': 'Matrix Red',
+                'purple': 'Neon Purple',
+                'teal': 'Teal',
+                'cyan-bright': 'Bright Cyan',
+                'magenta': 'Retro Magenta',
+                'orange-glow': 'Phosphor Orange',
+                'yellow-phosphor': 'Phosphor Yellow',
+                'ice-blue': 'Ice Blue',
+                'terminal-gray': 'Terminal Gray',
+                'blood-red': 'Blood Red',
+                'toxic-green': 'Toxic Green',
+                'violet-neon': 'Neon Violet'
+            },
+            default: 'custom',
+            onChange: this.applyColorPreset.bind(this)
+        });
+
+        // === EFFECTS SETTINGS ===
+
+        // Glow intensity setting
+        game.settings.register(this.MODULE_ID, 'glowIntensity', {
+            name: 'Glow Intensity',
+            hint: 'Controls the intensity of the green glow effect',
+            scope: 'world',
+            config: true,
+            type: Number,
+            range: {
+                min: 0,
+                max: 100,
+                step: 5
+            },
+            default: 50,
+            onChange: this.updateGlowIntensity.bind(this)
+        });
+
+        // Animation speed setting
+        game.settings.register(this.MODULE_ID, 'animationSpeed', {
+            name: 'Animation Speed',
+            hint: 'Controls the speed of animations (ms)',
+            scope: 'world',
+            config: true,
+            type: Number,
+            range: {
+                min: 50,
+                max: 2000,
+                step: 50
+            },
+            default: 150,
+            onChange: this.updateAnimationSpeed.bind(this)
+        });
+
+
+        // === CUSTOM COLOR SETTINGS ===
 
         // Primary color (main green)
         game.settings.register(this.MODULE_ID, 'primaryColor', {
@@ -116,74 +187,7 @@ class CyberpunkTerminalEffects {
             onChange: this.updateFontFamily.bind(this)
         });
 
-        // === EFFECTS SETTINGS ===
-
-        // Glow intensity setting
-        game.settings.register(this.MODULE_ID, 'glowIntensity', {
-            name: 'Glow Intensity',
-            hint: 'Controls the intensity of the green glow effect',
-            scope: 'world',
-            config: true,
-            type: Number,
-            range: {
-                min: 0,
-                max: 100,
-                step: 5
-            },
-            default: 50,
-            onChange: this.updateGlowIntensity.bind(this)
-        });
-
-        // Animation speed setting
-        game.settings.register(this.MODULE_ID, 'animationSpeed', {
-            name: 'Animation Speed',
-            hint: 'Controls the speed of animations (ms)',
-            scope: 'world',
-            config: true,
-            type: Number,
-            range: {
-                min: 50,
-                max: 2000,
-                step: 50
-            },
-            default: 150,
-            onChange: this.updateAnimationSpeed.bind(this)
-        });
-
-        // === PRESET SETTINGS ===
-
-        // Color presets
-        game.settings.register(this.MODULE_ID, 'colorPreset', {
-            name: 'Color Presets',
-            hint: 'Select a predefined color preset',
-            scope: 'world',
-            config: true,
-            type: String,
-            choices: {
-                'custom': 'Custom',
-                'classic-green': 'Classic Green',
-                'classic-green-orange': 'Classic Green-Orange',
-                'bright-green': 'Bright Green',
-                'dim-green': 'Dim Green',
-                'amber': 'Retro Amber',
-                'blue': 'Cyberpunk Blue',
-                'red': 'Matrix Red',
-                'purple': 'Neon Purple',
-                'teal': 'Teal',
-                'cyan-bright': 'Bright Cyan',
-                'magenta': 'Retro Magenta',
-                'orange-glow': 'Phosphor Orange',
-                'yellow-phosphor': 'Phosphor Yellow',
-                'ice-blue': 'Ice Blue',
-                'terminal-gray': 'Terminal Gray',
-                'blood-red': 'Blood Red',
-                'toxic-green': 'Toxic Green',
-                'violet-neon': 'Neon Violet'
-            },
-            default: 'custom',
-            onChange: this.applyColorPreset.bind(this)
-        });
-
+        
         // Button to reset settings
         game.settings.register(this.MODULE_ID, 'resetSettings', {
             name: 'Reset Settings',

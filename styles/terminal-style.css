@@ -120,12 +120,12 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 }
 
 #chat-log {
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
   font-family: var(--terminal-font) !important;
   font-size: var(--terminal-font-size) !important;
 }
 
-/* NUCLEAR OVERRIDE - Apply to absolutely EVERYTHING in chat */
+/* NUCLEAR OVERRIDE FOR BACKGROUND - Apply to absolutely EVERYTHING in chat */
 #chat *, 
 #chat-log *, 
 #chat-log ol *, 
@@ -150,7 +150,21 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-position: initial !important;
   background-repeat: initial !important;
   background-size: initial !important;
-  color: var(--terminal-primary) !important;
+}
+
+/* NUCLEAR OVERRIDE FOR TEXT COLOR - Use --terminal-text for normal text */
+#chat-log *, 
+#chat-log ol *, 
+#chat-log li *,
+#chat-log .message *,
+#chat-log .message-content *,
+#chat-log div *,
+#chat-log span *,
+#chat-log p *,
+#chat-log a *,
+#chat-log section *,
+#chat-log article * {
+  color: var(--terminal-text) !important;
 }
 
 /* Exclude only Font Awesome icons */
@@ -165,19 +179,19 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   color: var(--terminal-primary) !important;
 }
 
-/* Specific colors for chat elements */
+/* Specific colors for chat elements - Use --terminal-primary for highlights */
 #chat-log {
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
 }
 
 /* Individual messages */
 #chat-log .message {
   border-bottom: 1px solid var(--terminal-dim) !important;
   padding: 12px !important;
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
 }
 
-/* Headers and senders */
+/* Headers and senders - Highlighted */
 #chat-log .message .message-header,
 #chat-log .message .message-sender,
 #chat-log .message-sender {
@@ -187,10 +201,10 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   font-size: var(--terminal-font-size) !important;
 }
 
-/* Message content */
+/* Message content - Normal text */
 #chat-log .message .message-content,
 #chat-log .message-content {
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
   font-size: var(--terminal-font-size) !important;
   font-family: var(--terminal-font) !important;
 }
@@ -230,7 +244,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   font-style: italic !important;
 }
 
-/* Ultra aggressive universal selector as last resort */
+/* Ultra aggressive universal selector as last resort for background */
 #chat-log > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
@@ -279,12 +293,12 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-image: none !important;
   border: 2px solid var(--terminal-border) !important;
   box-shadow: var(--terminal-glow) !important;
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
   font-family: var(--terminal-font) !important;
   font-size: var(--terminal-font-size) !important;
 }
 
-/* NUCLEAR METHOD for popup - Apply to EVERYTHING inside popup */
+/* NUCLEAR METHOD for popup background - Apply to EVERYTHING inside popup */
 #chat-popout *,
 .chat-popout *,
 #dice-notification *,
@@ -316,10 +330,35 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-position: initial !important;
   background-repeat: initial !important;
   background-size: initial !important;
-  color: var(--terminal-primary) !important;
 }
 
-/* Specific popup elements - MORE AGGRESSIVE */
+/* NUCLEAR METHOD for popup text color - Use --terminal-text for normal */
+#chat-popout *,
+.chat-popout *,
+#dice-notification *,
+.dice-notification *,
+.dice-tooltip *,
+.chat-popup *,
+#chat-popout div *,
+.chat-popout div *,
+#dice-notification div *,
+.dice-notification div *,
+#chat-popout span *,
+.chat-popout span *,
+#dice-notification span *,
+.dice-notification span *,
+#chat-popout p *,
+.chat-popout p *,
+#dice-notification p *,
+.dice-notification p *,
+#chat-popout section *,
+.chat-popout section *,
+#dice-notification section *,
+.dice-notification section * {
+  color: var(--terminal-text) !important;
+}
+
+/* Specific popup elements - MORE AGGRESSIVE, highlights with primary */
 #chat-popout .message-header,
 .chat-popout .message-header,
 #dice-notification .message-header,
@@ -342,13 +381,13 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   text-shadow: var(--terminal-text-shadow) !important;
 }
 
-/* Message content in popup */
+/* Message content in popup - Normal text */
 #chat-popout .message-content,
 .chat-popout .message-content,
 #dice-notification .message-content,
 .dice-notification .message-content,
 .chat-popup .message-content {
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
   font-family: var(--terminal-font) !important;
 }
 
@@ -374,41 +413,35 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-color: var(--terminal-bg) !important;
 }
 
-/* Ultra aggressive universal selectors for popup as last resort */
+/* Ultra aggressive universal selectors for popup background as last resort */
 #chat-popout > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
 #chat-popout > * > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
 #chat-popout > * > * > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
 .chat-popout > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
 .chat-popout > * > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
 #dice-notification > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
 /* === SPECIFIC STYLES FOR CHAT POPUP - TOTAL BACKGROUND === */
@@ -419,7 +452,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-image: none !important;
   border: 2px solid var(--terminal-border) !important;
   box-shadow: var(--terminal-glow) !important;
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
   font-family: var(--terminal-font) !important;
 }
 
@@ -451,35 +484,46 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-position: initial !important;
   background-repeat: initial !important;
   background-size: initial !important;
-  color: var(--terminal-primary) !important;
 }
 
-/* Ultra aggressive universal selectors for popout */
+/* NUCLEAR METHOD for popout text color - Normal text */
+.chat-popout div,
+.chat-popout div *,
+.chat-popout span,
+.chat-popout span *,
+.chat-popout section,
+.chat-popout section *,
+.chat-popout article,
+.chat-popout article *,
+.chat-popout main,
+.chat-popout main *,
+.chat-popout .window-content,
+.chat-popout .window-content * {
+  color: var(--terminal-text) !important;
+}
+
+/* Ultra aggressive universal selectors for popout background */
 .chat-popout > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
 .chat-popout > * > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
 .chat-popout > * > * > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
 .chat-popout > * > * > * > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
 }
 
-/* Style for header */
+/* Style for header - Highlighted */
 .chat-popup-header,
 .chat-popout .window-title,
 .chat-popout-header {
@@ -494,13 +538,13 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   text-shadow: var(--terminal-text-shadow) !important;
 }
 
-/* Style for chat body */
+/* Style for chat body - Normal text */
 .chat-popup-body,
 .chat-popout-body,
 .chat-popout .window-content {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
   padding: 15px !important;
   font-size: var(--terminal-font-size) !important;
   font-family: var(--terminal-font) !important;
@@ -525,7 +569,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   border-radius: 0px !important;
   margin: 5px 0 !important;
   padding: 10px !important;
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
 }
 
 /* Style for buttons */
@@ -550,7 +594,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 #dice-notification > * > * {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;
 }
 
 /* Timestamps in popup */
@@ -565,7 +609,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 }
 
 /* === DIALOGS AND FORMS === */
-/* Windows and all their internal elements */
+/* Windows and all their internal elements - Background nuclear */
 .dialog, .window-app,
 .dialog *, .window-app *,
 .dialog .window-frame, .window-app .window-frame,
@@ -577,7 +621,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-image: none !important;
 }
 
-/* Window content */
+/* Window content - Normal text */
 .dialog .window-content, 
 .window-app .window-content {
   color: var(--terminal-text) !important;
@@ -585,7 +629,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   font-size: var(--terminal-font-size) !important;
 }
 
-/* Forms and internal dialogs */
+/* Forms and internal dialogs - Normal text */
 .dialog .dialog-content,
 .window-app form,
 .dialog form,
@@ -601,7 +645,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   border-top: 1px solid var(--terminal-border) !important;
 }
 
-/* Inputs and selects in forms */
+/* Inputs and selects in forms - Cambio aquí: usa --terminal-text para texto normal, no primary */
 .dialog input:not([type="checkbox"]):not([type="radio"]),
 .window-app input:not([type="checkbox"]):not([type="radio"]),
 .dialog textarea,
@@ -609,7 +653,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 .dialog select,
 .window-app select {
   background-color: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
+  color: var(--terminal-text) !important;  /* ¡Cambiado a --terminal-text para que use el color de texto normal! */
   border: 1px solid var(--terminal-border) !important;
   font-family: var(--terminal-font) !important;
   font-size: var(--terminal-font-size) !important;
@@ -892,13 +936,6 @@ button:hover, .button:hover {
 
 /* === FIX FOR WHITE/GRAY SEPARATOR LINES === */
 
-/* Force ALL borders to terminal color */
-*,
-*::before,
-*::after {
-  border-color: var(--terminal-border) !important;
-}
-
 /* Specific form separators */
 hr,
 .separator,
@@ -973,13 +1010,13 @@ nav.tabs .item,
   height: fit-content;
   margin-right: 3px;
   margin-top: 5px;
-  border: solid black;
+  border: solid var(--terminal-border);
   border-width: 0px 2px 2px 2px;
 }
 
 .wound-tracker .wound-state-label {
-  background-color: black;
-  color: whitesmoke;
+  background-color: var(--terminal-bg);
+  color: var(--terminal-text);
   font-size: smaller;
   font-variant: small-caps;
   padding: 2px;
@@ -1000,7 +1037,7 @@ nav.tabs .item,
   flex-grow: 1;
   border-style: solid;
   border-width: 0px 1px 0px 1px;
-  border-color: black;
+  border-color: var(--terminal-border);
   border-radius: 0;
   margin: 0;
   padding: 0;
@@ -1020,7 +1057,7 @@ nav.tabs .item,
 
 /* Filled box */
 .wound-tracker .damage.filled::before {
-  background-color: firebrick;
+  background-color: var(--terminal-error);
 }
 
 /* Empty box */
@@ -1030,7 +1067,7 @@ nav.tabs .item,
 
 /* Hover: highlight */
 .wound-tracker .damage:hover::before {
-  background-color: rgba(178, 34, 34, 0.5);
+  background-color: rgba(204, 0, 0, 0.5);
 }
 
 /* Separators */
@@ -1051,7 +1088,7 @@ nav.tabs .item,
 
 /* Chip toggle container */
 .field.skill label.chip-toggle {
-  background-color: black;
+  background-color: var(--terminal-bg);
   display: flex;
   align-items: center;
   padding-right: 3px;
@@ -1089,7 +1126,7 @@ nav.tabs .item,
 
 /* SEARCH ICON */
 .skill-top-matter div.search-icon {
-  background-color: black !important;
+  background-color: var(--terminal-bg) !important;
   background-image: url("../img/search.png") !important;
   background-size: cover !important;
   background-position: center !important;
