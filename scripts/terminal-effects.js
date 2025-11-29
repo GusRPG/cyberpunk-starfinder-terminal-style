@@ -126,7 +126,7 @@ class CyberpunkTerminalEffects {
                 max: 36,
                 step: 1
             },
-            default: 22,
+            default: 19,
             onChange: this.updateFontSize.bind(this)
         });
 
