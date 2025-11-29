@@ -96,7 +96,7 @@ class CyberpunkTerminalEffects {
             type: String,
             choices: {
                 'mono': 'Share Tech Mono (Recommended)',
-                'courier': 'Courier Prime' ,
+                'courier': 'Courier Prime',
                 'consolas': 'Consolas',
                 'menlo': 'Menlo',
                 'monaco': 'Monaco',
@@ -162,7 +162,7 @@ class CyberpunkTerminalEffects {
             choices: {
                 'custom': 'Custom',
                 'classic-green': 'Classic Green',
-                'classic-green': 'Classic Green-Orange',
+                'classic-green-orange': 'Classic Green-Orange',
                 'bright-green': 'Bright Green',
                 'dim-green': 'Dim Green',
                 'amber': 'Retro Amber',
@@ -331,6 +331,24 @@ class CyberpunkTerminalEffects {
         if (preset === 'custom') return; // Don't change if custom
 
         const presets = {
+            'amber': {
+                primary: '#ffaa00',
+                secondary: '#cc8800',
+                text: '#ee9900',
+                background: '#110800'
+            },
+            'blood-red': {
+                primary: '#ff3333',
+                secondary: '#cc2222',
+                text: '#dd2222',
+                background: '#1a0000'
+            },
+            'blue': {
+                primary: '#0099ff',
+                secondary: '#0077cc',
+                text: '#0088ee',
+                background: '#001122'
+            },
             'classic-green': {
                 primary: '#00ff00',
                 secondary: '#00cc00',
@@ -342,12 +360,12 @@ class CyberpunkTerminalEffects {
                 secondary: '#00cc00',
                 text: '#00dd00',
                 background: '#000000'
-            },            
-            'bright-green': {
-                primary: '#00ff66',
-                secondary: '#00cc44',
-                text: '#00ee55',
-                background: '#001100'
+            },
+            'cyan-bright': {
+                primary: '#00e5ff',
+                secondary: '#00b3cc',
+                text: '#00cce0',
+                background: '#00141a'
             },
             'dim-green': {
                 primary: '#006600',
@@ -355,41 +373,11 @@ class CyberpunkTerminalEffects {
                 text: '#005500',
                 background: '#000000'
             },
-            'amber': {
-                primary: '#ffaa00',
-                secondary: '#cc8800',
-                text: '#ee9900',
-                background: '#110800'
-            },
-            'blue': {
-                primary: '#0099ff',
-                secondary: '#0077cc',
-                text: '#0088ee',
-                background: '#001122'
-            },
-            'red': {
-                primary: '#ff0066',
-                secondary: '#cc0044',
-                text: '#ee0055',
-                background: '#110011'
-            },
-            'purple': {
-                primary: '#cc00ff',
-                secondary: '#9900cc',
-                text: '#bb00ee',
-                background: '#110022'
-            },
-            'teal': {
-                primary: '#00ffee',
-                secondary: '#00ccbb',
-                text: '#00ddcc',
+            'ice-blue': {
+                primary: '#66ffff',
+                secondary: '#44cccc',
+                text: '#55eeee',
                 background: '#001111'
-            },
-            'cyan-bright': {
-                primary: '#00e5ff',
-                secondary: '#00b3cc',
-                text: '#00cce0',
-                background: '#00141a'
             },
             'magenta': {
                 primary: '#ff00ff',
@@ -403,16 +391,22 @@ class CyberpunkTerminalEffects {
                 text: '#ee5500',
                 background: '#1a0d00'
             },
-            'yellow-phosphor': {
-                primary: '#ffff66',
-                secondary: '#cccc44',
-                text: '#eeee55',
-                background: '#111100'
+            'purple': {
+                primary: '#cc00ff',
+                secondary: '#9900cc',
+                text: '#bb00ee',
+                background: '#110022'
             },
-            'ice-blue': {
-                primary: '#66ffff',
-                secondary: '#44cccc',
-                text: '#55eeee',
+            'red': {
+                primary: '#ff0066',
+                secondary: '#cc0044',
+                text: '#ee0055',
+                background: '#110011'
+            },
+            'teal': {
+                primary: '#00ffee',
+                secondary: '#00ccbb',
+                text: '#00ddcc',
                 background: '#001111'
             },
             'terminal-gray': {
@@ -420,12 +414,6 @@ class CyberpunkTerminalEffects {
                 secondary: '#888888',
                 text: '#aaaaaa',
                 background: '#000000'
-            },
-            'blood-red': {
-                primary: '#ff3333',
-                secondary: '#cc2222',
-                text: '#dd2222',
-                background: '#1a0000'
             },
             'toxic-green': {
                 primary: '#99ff00',
@@ -438,7 +426,20 @@ class CyberpunkTerminalEffects {
                 secondary: '#cc2299',
                 text: '#ee22aa',
                 background: '#1a0011'
+            },
+            'bright-green': {
+                primary: '#00ff66',
+                secondary: '#00cc44',
+                text: '#00ee55',
+                background: '#001100'
+            },
+            'yellow-phosphor': {
+                primary: '#ffff66',
+                secondary: '#cccc44',
+                text: '#eeee55',
+                background: '#111100'
             }
+
         };
 
         if (presets[preset]) {
