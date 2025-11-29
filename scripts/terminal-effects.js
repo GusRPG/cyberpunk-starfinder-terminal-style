@@ -162,6 +162,7 @@ class CyberpunkTerminalEffects {
             choices: {
                 'custom': 'Custom',
                 'classic-green': 'Classic Green',
+                'classic-green': 'Classic Green-Orange',
                 'bright-green': 'Bright Green',
                 'dim-green': 'Dim Green',
                 'amber': 'Retro Amber',
@@ -336,6 +337,12 @@ class CyberpunkTerminalEffects {
                 text: '#00dd00',
                 background: '#000000'
             },
+            'classic-green-orange': {
+                primary: '#FF7F00',
+                secondary: '#00cc00',
+                text: '#00dd00',
+                background: '#000000'
+            },            
             'bright-green': {
                 primary: '#00ff66',
                 secondary: '#00cc44',
@@ -550,7 +557,7 @@ class CyberpunkTerminalEffects {
                 const defaults = {
                     primaryColor: '#009900',
                     secondaryColor: '#006600',
-                    textColor: '#FF7F00',
+                    textColor: '#008800',
                     backgroundColor: '#000000',
                     fontSize: 19,
                     fontFamily: 'mono',
