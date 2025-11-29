@@ -20,6 +20,6 @@
     "styles/terminal-style.css"
   ],
   "url": "https://github.com/GusRPG/cyberpunk-starfinder-terminal-style",
-  "manifest": "https://raw.githubusercontent.com/GusRPG/cyberpunk-starfinder-terminal-style/v1.0.2/module.json",
+  "manifest": "https://raw.githubusercontent.com/GusRPG/cyberpunk-starfinder-terminal-style/main/module.json",
   "download": "https://github.com/GusRPG/cyberpunk-starfinder-terminal-style/archive/refs/heads/main.zip"
   }
