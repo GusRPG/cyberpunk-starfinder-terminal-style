@@ -367,10 +367,17 @@ class CyberpunkTerminalEffects {
         }
     }
 
-    static applyColorPreset() {
-        const preset = game.settings.get(this.MODULE_ID, 'colorPreset');
+    static async applyColorPreset(newValue) {
+        // Usar el parámetro que onChange pasa automáticamente
+        const preset = newValue || game.settings.get(this.MODULE_ID, 'colorPreset');
 
-        if (preset === 'custom') return; // Don't change if custom
+        console.log(`${this.MODULE_TITLE} | applyColorPreset called with: ${preset}`);
+
+        // Solo retornar si el NUEVO preset es 'custom'
+        if (preset === 'custom') {
+            console.log(`${this.MODULE_TITLE} | Custom preset selected, no changes applied`);
+            return;
+        }
 
         const presets = {
             // === CLASSIC FIRST ===
@@ -397,7 +404,7 @@ class CyberpunkTerminalEffects {
                 background: '#110800',
                 foundryMenuIcon: '#fff0cc'
             },
-            'black-ice': {                     // NEW 1
+            'black-ice': {
                 border: '#66ccff',
                 console: '#3399cc',
                 text: '#aaddff',
@@ -425,21 +432,21 @@ class CyberpunkTerminalEffects {
                 background: '#001100',
                 foundryMenuIcon: '#ccffe6'
             },
-            'circuit-blue': {                 // NEW 2
+            'circuit-blue': {
                 border: '#33ccff',
                 console: '#2299cc',
                 text: '#99e6ff',
                 background: '#000d1a',
                 foundryMenuIcon: '#ccefff'
             },
-            'cold-steel': {                   // NEW 3
+            'cold-steel': {
                 border: '#88aaff',
                 console: '#6688cc',
                 text: '#ccd5ff',
                 background: '#0a0a12',
                 foundryMenuIcon: '#dde4ff'
             },
-            'corpo-silver': {                 // NEW 4
+            'corpo-silver': {
                 border: '#cccccc',
                 console: '#999999',
                 text: '#eeeeee',
@@ -453,7 +460,7 @@ class CyberpunkTerminalEffects {
                 background: '#00141a',
                 foundryMenuIcon: '#ccf9ff'
             },
-            'deep-violet': {                  // NEW 5
+            'deep-violet': {
                 border: '#aa33ff',
                 console: '#771fcc',
                 text: '#d8a6ff',
@@ -467,28 +474,28 @@ class CyberpunkTerminalEffects {
                 background: '#000000',
                 foundryMenuIcon: '#99e699'
             },
-            'ember-orange': {                 // NEW 6
+            'ember-orange': {
                 border: '#ff9933',
                 console: '#cc7722',
                 text: '#ffd9b3',
                 background: '#1a0d00',
                 foundryMenuIcon: '#ffe6cc'
             },
-            'ghost-white': {                  // NEW 7
+            'ghost-white': {
                 border: '#eeeeee',
                 console: '#cccccc',
                 text: '#ffffff',
                 background: '#121212',
                 foundryMenuIcon: '#ffffff'
             },
-            'glitch-pink': {                  // NEW 8
+            'glitch-pink': {
                 border: '#ff66cc',
                 console: '#cc4fa3',
                 text: '#ffb3e6',
                 background: '#1a0014',
                 foundryMenuIcon: '#ffd6f2'
             },
-            'holo-cyan': {                    // NEW 9
+            'holo-cyan': {
                 border: '#33ffff',
                 console: '#22cccc',
                 text: '#99ffff',
@@ -502,7 +509,7 @@ class CyberpunkTerminalEffects {
                 background: '#001111',
                 foundryMenuIcon: '#e6ffff'
             },
-            'infrared': {                     // NEW 10
+            'infrared': {
                 border: '#ff3344',
                 console: '#cc222f',
                 text: '#ff99a5',
@@ -516,14 +523,14 @@ class CyberpunkTerminalEffects {
                 background: '#1a001a',
                 foundryMenuIcon: '#ffccff'
             },
-            'neon-gold': {                    // NEW 11
+            'neon-gold': {
                 border: '#ffdd33',
                 console: '#ccaa22',
                 text: '#ffee99',
                 background: '#1a1700',
                 foundryMenuIcon: '#fff2cc'
             },
-            'night-ops': {                    // NEW 12
+            'night-ops': {
                 border: '#88ffcc',
                 console: '#66cca3',
                 text: '#ccffe6',
@@ -537,7 +544,7 @@ class CyberpunkTerminalEffects {
                 background: '#1a0d00',
                 foundryMenuIcon: '#ffd6cc'
             },
-            'plasma-green': {                 // NEW 13
+            'plasma-green': {
                 border: '#77ff55',
                 console: '#55cc33',
                 text: '#caffb8',
@@ -551,7 +558,7 @@ class CyberpunkTerminalEffects {
                 background: '#110022',
                 foundryMenuIcon: '#f2ccff'
             },
-            'quantum-blue': {                 // NEW 14
+            'quantum-blue': {
                 border: '#44aaff',
                 console: '#2288cc',
                 text: '#b3d9ff',
@@ -565,28 +572,28 @@ class CyberpunkTerminalEffects {
                 background: '#110011',
                 foundryMenuIcon: '#ffccdd'
             },
-            'retro-green': {                  // NEW 15
+            'retro-green': {
                 border: '#55ff55',
                 console: '#33cc33',
                 text: '#b3ffb3',
                 background: '#000a00',
                 foundryMenuIcon: '#d6ffd6'
             },
-            'shadow-purple': {                // NEW 16
+            'shadow-purple': {
                 border: '#aa00ff',
                 console: '#7700cc',
                 text: '#d699ff',
                 background: '#0d0014',
                 foundryMenuIcon: '#ebccff'
             },
-            'signal-orange': {                // NEW 17
+            'signal-orange': {
                 border: '#ff8844',
                 console: '#cc6a33',
                 text: '#ffd6bb',
                 background: '#1a0f06',
                 foundryMenuIcon: '#ffe6d1'
             },
-            'synthetic-cyan': {               // NEW 18
+            'synthetic-cyan': {
                 border: '#00ffee',
                 console: '#00bbcc',
                 text: '#99fff7',
@@ -628,8 +635,6 @@ class CyberpunkTerminalEffects {
                 background: '#111100',
                 foundryMenuIcon: '#ffffe6'
             },
-
-            // NEW 19
             'void-black': {
                 border: '#555555',
                 console: '#333333',
@@ -637,8 +642,6 @@ class CyberpunkTerminalEffects {
                 background: '#000000',
                 foundryMenuIcon: '#e6e6e6'
             },
-
-            // NEW 20
             'warpaint-red': {
                 border: '#ff1122',
                 console: '#cc0e19',
@@ -648,21 +651,30 @@ class CyberpunkTerminalEffects {
             }
         };
 
-
         if (presets[preset]) {
             const colors = presets[preset];
+            console.log(`${this.MODULE_TITLE} | Applying colors:`, colors);
 
-            // Update settings
-            game.settings.set(this.MODULE_ID, 'borderColor', colors.border);
-            game.settings.set(this.MODULE_ID, 'consoleLogColor', colors.console);
-            game.settings.set(this.MODULE_ID, 'foundryMenuIconColor', colors.foundryMenuIcon);
-            game.settings.set(this.MODULE_ID, 'backgroundColor', colors.background);
-            game.settings.set(this.MODULE_ID, 'mainTextColor', colors.text);
+            // Guardar todos los settings SIN disparar updateColors en cada onChange
+            await Promise.all([
+                game.settings.set(this.MODULE_ID, 'borderColor', colors.border),
+                game.settings.set(this.MODULE_ID, 'consoleLogColor', colors.console),
+                game.settings.set(this.MODULE_ID, 'foundryMenuIconColor', colors.foundryMenuIcon),
+                game.settings.set(this.MODULE_ID, 'backgroundColor', colors.background),
+                game.settings.set(this.MODULE_ID, 'mainTextColor', colors.text)
+            ]);
 
-            // Apply colors
+            console.log(`${this.MODULE_TITLE} | All color settings saved, now applying styles...`);
+
+            // Esperar un momento para que Foundry procese los cambios
+            await new Promise(resolve => setTimeout(resolve, 100));
+
+            // AHORA aplicar los colores visualmente
             this.updateColors();
 
-            ui.notifications.info(`Color preset "${preset}" applied.`);
+            ui.notifications.info(`Color preset "${preset}" applied successfully.`);
+        } else {
+            console.warn(`${this.MODULE_TITLE} | Preset not found: ${preset}`);
         }
     }
 
