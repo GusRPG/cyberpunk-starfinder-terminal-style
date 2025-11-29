@@ -1186,9 +1186,23 @@ nav.tabs .item,
   transition: opacity 0.2s;
 }
 
+*:not(.message-timestamp),
+*:not(.message-timestamp)::before,
+*:not(.message-timestamp)::after {
+  border-color: var(--terminal-border) !important;
+}
+
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
   :root {
     --terminal-font-size: 18px;
   }
 }
+
+.app.window-app {
+  border: 2px solid var(--terminal-primary) !important;
+  box-shadow: var(--terminal-glow) !important;
+}
+
+
