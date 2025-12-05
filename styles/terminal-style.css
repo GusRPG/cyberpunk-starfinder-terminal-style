@@ -1244,4 +1244,25 @@ css/* === DICE TRAY OVERRIDE - MÁXIMA ESPECIFICIDAD === */
   font-family: var(--terminal-font) !important;
 }
 
+/* === DESCRIPTION HEADER AND LABELS FIX === */
+.description-header,
+.property-group label,
+.combat-properties label,
+.general-notes label {
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+h3.description-header {
+  color: var(--terminal-primary) !important;
+  font-weight: bold !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+}
+
+Esto hará que los headers (h3) se vean en verde destacado (--terminal-primary) y los labels en el color de texto normal (--terminal-text).
+Session limit reached ∙ resets 5:00 AM
+Upgrade
+
+
 
