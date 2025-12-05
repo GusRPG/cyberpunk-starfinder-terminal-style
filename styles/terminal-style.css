@@ -643,7 +643,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 /* === DIALOGS AND FORMS === */
 /* Windows and all their internal elements - Background nuclear */
 .dialog, .window-app,
-.dialog *, .window-app *,
+.dialog *:not(.item-image), .window-app *:not(.item-image),
 .dialog .window-frame, .window-app .window-frame,
 .dialog .window-header, .window-app .window-header,
 .dialog .window-content, .window-app .window-content,

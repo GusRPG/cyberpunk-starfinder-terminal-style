@@ -2,7 +2,7 @@
   "id": "cyberpunk-starfinder-terminal-style",
   "title": "Cyberpunk Starfinder Terminal Style",
   "description": "Terminal style for Cyberpunk and Starfinder Foundry VTT systems.",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "compatibility": {
     "minimum": "13",
     "verified": "13",
