@@ -99,8 +99,8 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   color: inherit !important;
 }
 
-
-
+/* === COMPLETE BLACK BACKGROUND FOR CHAT - MAXIMUM AGGRESSIVENESS === */
+/* Force ALL chat to black - nuclear method */
 #chat,
 #chat *,
 #chat-log,
@@ -114,11 +114,6 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-image: none !important;
 }
 
-.app.window-app {
-  border: 2px solid var(--terminal-primary) !important;
-  box-shadow: var(--terminal-glow) !important;
-}
-
 #chat {
   border: 2px solid var(--terminal-border) !important;
   box-shadow: var(--terminal-glow) !important;
@@ -128,14 +123,6 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   color: var(--terminal-text) !important;
   font-family: var(--terminal-font) !important;
   font-size: var(--terminal-font-size) !important;
-}
-
-.message-sender {
-  color: var(--terminal-primary) !important;
-}
-
-.message-timestamp {
-  color: var(--terminal-primary) !important;
 }
 
 /* NUCLEAR OVERRIDE FOR BACKGROUND - Apply to absolutely EVERYTHING in chat */
@@ -277,13 +264,28 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   background-color: var(--terminal-text) !important;
 }
 
-.dice-tray__button {
-  background-color: var(--terminal-bg) !important;
-  border: 1px solid var(--terminal-border) !important;
+.message-sender {
+  color: var(--terminal-primary) !important;
 }
 
-.dice-tray__button .dice {
-  background-color: var(--terminal-text) !important;
+.flavor-text {
+  color: var(--terminal-text) !important;
+}
+
+.whisper-to {
+  color: var(--terminal-primary) !important;
+}
+
+.message-metadata {
+  color: var(--terminal-primary) !important;
+}
+
+.message-timestamp {
+  color: var(--terminal-primary) !important;
+}
+
+.message-delete i {
+  color: var(--terminal-primary) !important;
 }
 
 .message-content {
@@ -1184,6 +1186,13 @@ nav.tabs .item,
   transition: opacity 0.2s;
 }
 
+*:not(.message-timestamp),
+*:not(.message-timestamp)::before,
+*:not(.message-timestamp)::after {
+  border-color: var(--terminal-border) !important;
+}
+
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
   :root {
@@ -1191,10 +1200,48 @@ nav.tabs .item,
   }
 }
 
-
-
-*,
-*::before,
-*::after {
-  border-color: var(--terminal-border) !important;
+.app.window-app {
+  border: 2px solid var(--terminal-primary) !important;
+  box-shadow: var(--terminal-glow) !important;
 }
+
+css/* === DICE TRAY OVERRIDE - MÁXIMA ESPECIFICIDAD === */
+#chat .dice-tray__button .dice,
+#chat .dice-tray .dice-tray__button .dice,
+.dice-tray .dice-tray__button .dice {
+  background-color: var(--terminal-primary) !important;
+  background: var(--terminal-primary) !important;
+  background-image: none !important;
+}
+
+#chat .dice-tray__button:hover .dice,
+#chat .dice-tray .dice-tray__button:hover .dice,
+.dice-tray .dice-tray__button:hover .dice {
+  background-color: var(--terminal-warning) !important;
+  background: var(--terminal-warning) !important;
+}
+
+/* === DICE ROLL TOTAL FIX === */
+.dice-roll .total,
+.dice-total .total,
+.roll-total .total,
+#chat .dice-roll .total,
+#chat .dice-total .total {
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  font-weight: bold !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+}
+
+.dice-roll,
+.dice-result,
+.roll-total,
+#chat .dice-roll,
+#chat .dice-result {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+}
+
+

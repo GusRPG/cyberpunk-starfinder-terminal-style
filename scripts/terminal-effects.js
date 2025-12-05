@@ -122,11 +122,11 @@ class CyberpunkTerminalEffects {
             config: true,
             type: Number,
             range: {
-                min: 12,
+                min: 9,
                 max: 36,
                 step: 1
             },
-            default: 22,
+            default: 19,
             onChange: this.updateFontSize.bind(this)
         });
 
@@ -141,11 +141,11 @@ class CyberpunkTerminalEffects {
             config: true,
             type: Number,
             range: {
-                min: 0,
+                min: 1,
                 max: 100,
-                step: 5
+                step: 1
             },
-            default: 50,
+            default: 6,
             onChange: this.updateGlowIntensity.bind(this)
         });
 
@@ -157,9 +157,9 @@ class CyberpunkTerminalEffects {
             config: true,
             type: Number,
             range: {
-                min: 50,
+                min: 1,
                 max: 2000,
-                step: 50
+                step: 1
             },
             default: 150,
             onChange: this.updateAnimationSpeed.bind(this)
@@ -368,315 +368,316 @@ class CyberpunkTerminalEffects {
     }
 
     static async applyColorPreset(newValue) {
-    // Usar el parámetro que onChange pasa automáticamente
-    const preset = newValue || game.settings.get(this.MODULE_ID, 'colorPreset');
+        // Usar el parámetro que onChange pasa automáticamente
+        const preset = newValue || game.settings.get(this.MODULE_ID, 'colorPreset');
 
-    console.log(`${this.MODULE_TITLE} | applyColorPreset called with: ${preset}`);
+        console.log(`${this.MODULE_TITLE} | applyColorPreset called with: ${preset}`);
 
-    // Solo retornar si el NUEVO preset es 'custom'
-    if (preset === 'custom') {
-        console.log(`${this.MODULE_TITLE} | Custom preset selected, no changes applied`);
-        return;
-    }
-
-    const presets = {
-        // === CLASSIC FIRST ===
-        'classic-green': {
-            border: '#00ff00',
-            console: '#00cc00',
-            text: '#99ff99',
-            background: '#000000',
-            foundryMenuIcon: '#ccffcc'
-        },
-        'classic-green-orange': {
-            border: '#00ff33',
-            console: '#00aa22',
-            text: '#ff7f1a',
-            background: '#000000',
-            foundryMenuIcon: '#ffb366'
-        },
-
-        // === REST ORDERED ALPHA ===
-        'amber': {
-            border: '#ffaa00',
-            console: '#cc8800',
-            text: '#ffe6b3',
-            background: '#110800',
-            foundryMenuIcon: '#fff0cc'
-        },
-        'black-ice': {
-            border: '#66ccff',
-            console: '#3399cc',
-            text: '#aaddff',
-            background: '#000611',
-            foundryMenuIcon: '#cce9ff'
-        },
-        'blood-red': {
-            border: '#ff3333',
-            console: '#cc2222',
-            text: '#ff9999',
-            background: '#1a0000',
-            foundryMenuIcon: '#ffb3b3'
-        },
-        'blue': {
-            border: '#0099ff',
-            console: '#0077cc',
-            text: '#99d6ff',
-            background: '#001122',
-            foundryMenuIcon: '#cceaff'
-        },
-        'bright-green': {
-            border: '#00ff66',
-            console: '#00cc44',
-            text: '#99ffcc',
-            background: '#001100',
-            foundryMenuIcon: '#ccffe6'
-        },
-        'circuit-blue': {
-            border: '#33ccff',
-            console: '#2299cc',
-            text: '#99e6ff',
-            background: '#000d1a',
-            foundryMenuIcon: '#ccefff'
-        },
-        'cold-steel': {
-            border: '#88aaff',
-            console: '#6688cc',
-            text: '#ccd5ff',
-            background: '#0a0a12',
-            foundryMenuIcon: '#dde4ff'
-        },
-        'corpo-silver': {
-            border: '#cccccc',
-            console: '#999999',
-            text: '#eeeeee',
-            background: '#0d0d0d',
-            foundryMenuIcon: '#ffffff'
-        },
-        'cyan-bright': {
-            border: '#00e5ff',
-            console: '#00b3cc',
-            text: '#99f3ff',
-            background: '#00141a',
-            foundryMenuIcon: '#ccf9ff'
-        },
-        'deep-violet': {
-            border: '#aa33ff',
-            console: '#771fcc',
-            text: '#d8a6ff',
-            background: '#0d001a',
-            foundryMenuIcon: '#e8ccff'
-        },
-        'dim-green': {
-            border: '#006600',
-            console: '#004400',
-            text: '#66cc66',
-            background: '#000000',
-            foundryMenuIcon: '#99e699'
-        },
-        'ember-orange': {
-            border: '#ff9933',
-            console: '#cc7722',
-            text: '#ffd9b3',
-            background: '#1a0d00',
-            foundryMenuIcon: '#ffe6cc'
-        },
-        'ghost-white': {
-            border: '#eeeeee',
-            console: '#cccccc',
-            text: '#ffffff',
-            background: '#121212',
-            foundryMenuIcon: '#ffffff'
-        },
-        'glitch-pink': {
-            border: '#ff66cc',
-            console: '#cc4fa3',
-            text: '#ffb3e6',
-            background: '#1a0014',
-            foundryMenuIcon: '#ffd6f2'
-        },
-        'holo-cyan': {
-            border: '#33ffff',
-            console: '#22cccc',
-            text: '#99ffff',
-            background: '#001414',
-            foundryMenuIcon: '#ccffff'
-        },
-        'ice-blue': {
-            border: '#66ffff',
-            console: '#44cccc',
-            text: '#ccffff',
-            background: '#001111',
-            foundryMenuIcon: '#e6ffff'
-        },
-        'infrared': {
-            border: '#ff3344',
-            console: '#cc222f',
-            text: '#ff99a5',
-            background: '#1a0003',
-            foundryMenuIcon: '#ffb3bd'
-        },
-        'magenta': {
-            border: '#ff00ff',
-            console: '#cc00cc',
-            text: '#ff99ff',
-            background: '#1a001a',
-            foundryMenuIcon: '#ffccff'
-        },
-        'neon-gold': {
-            border: '#ffdd33',
-            console: '#ccaa22',
-            text: '#ffee99',
-            background: '#1a1700',
-            foundryMenuIcon: '#fff2cc'
-        },
-        'night-ops': {
-            border: '#88ffcc',
-            console: '#66cca3',
-            text: '#ccffe6',
-            background: '#000d08',
-            foundryMenuIcon: '#e6fff3'
-        },
-        'orange-glow': {
-            border: '#ff6600',
-            console: '#cc5200',
-            text: '#ffbb99',
-            background: '#1a0d00',
-            foundryMenuIcon: '#ffd6cc'
-        },
-        'plasma-green': {
-            border: '#77ff55',
-            console: '#55cc33',
-            text: '#caffb8',
-            background: '#061a00',
-            foundryMenuIcon: '#e1ffd8'
-        },
-        'purple': {
-            border: '#cc00ff',
-            console: '#9900cc',
-            text: '#e699ff',
-            background: '#110022',
-            foundryMenuIcon: '#f2ccff'
-        },
-        'quantum-blue': {
-            border: '#44aaff',
-            console: '#2288cc',
-            text: '#b3d9ff',
-            background: '#000a19',
-            foundryMenuIcon: '#d6eaff'
-        },
-        'red': {
-            border: '#ff0066',
-            console: '#cc0044',
-            text: '#ff99bb',
-            background: '#110011',
-            foundryMenuIcon: '#ffccdd'
-        },
-        'retro-green': {
-            border: '#55ff55',
-            console: '#33cc33',
-            text: '#b3ffb3',
-            background: '#000a00',
-            foundryMenuIcon: '#d6ffd6'
-        },
-        'shadow-purple': {
-            border: '#aa00ff',
-            console: '#7700cc',
-            text: '#d699ff',
-            background: '#0d0014',
-            foundryMenuIcon: '#ebccff'
-        },
-        'signal-orange': {
-            border: '#ff8844',
-            console: '#cc6a33',
-            text: '#ffd6bb',
-            background: '#1a0f06',
-            foundryMenuIcon: '#ffe6d1'
-        },
-        'synthetic-cyan': {
-            border: '#00ffee',
-            console: '#00bbcc',
-            text: '#99fff7',
-            background: '#001212',
-            foundryMenuIcon: '#ccfffa'
-        },
-        'teal': {
-            border: '#00ffee',
-            console: '#00ccbb',
-            text: '#99fff7',
-            background: '#001111',
-            foundryMenuIcon: '#ccfffa'
-        },
-        'terminal-gray': {
-            border: '#bbbbbb',
-            console: '#888888',
-            text: '#eeeeee',
-            background: '#000000',
-            foundryMenuIcon: '#ffffff'
-        },
-        'toxic-green': {
-            border: '#99ff00',
-            console: '#77cc00',
-            text: '#ccff99',
-            background: '#0d1a00',
-            foundryMenuIcon: '#e6ffcc'
-        },
-        'violet-neon': {
-            border: '#ff33cc',
-            console: '#cc2299',
-            text: '#ff99e6',
-            background: '#1a0011',
-            foundryMenuIcon: '#ffccee'
-        },
-        'yellow-phosphor': {
-            border: '#ffff66',
-            console: '#cccc44',
-            text: '#ffffcc',
-            background: '#111100',
-            foundryMenuIcon: '#ffffe6'
-        },
-        'void-black': {
-            border: '#555555',
-            console: '#333333',
-            text: '#cccccc',
-            background: '#000000',
-            foundryMenuIcon: '#e6e6e6'
-        },
-        'warpaint-red': {
-            border: '#ff1122',
-            console: '#cc0e19',
-            text: '#ff99a3',
-            background: '#120002',
-            foundryMenuIcon: '#ffccd1'
+        // Solo retornar si el NUEVO preset es 'custom'
+        if (preset === 'custom') {
+            console.log(`${this.MODULE_TITLE} | Custom preset selected, no changes applied`);
+            return;
         }
-    };
 
-    if (presets[preset]) {
-        const colors = presets[preset];
-        console.log(`${this.MODULE_TITLE} | Applying colors:`, colors);
+        const presets = {
+            // === CLASSIC FIRST ===
+            'classic-green': {
+                border: '#00ff00',
+                console: '#00cc00',
+                text: '#99ff99',
+                background: '#000000',
+                foundryMenuIcon: '#ccffcc'
+            },
+            'classic-green-orange': {
+                border: '#00ff33',
+                console: '#00aa22',
+                text: '#ff7f1a',
+                background: '#000000',
+                foundryMenuIcon: '#ffb366'
+            },
 
-        // Guardar todos los settings SIN disparar updateColors en cada onChange
-        await Promise.all([
-            game.settings.set(this.MODULE_ID, 'borderColor', colors.border),
-            game.settings.set(this.MODULE_ID, 'consoleLogColor', colors.console),
-            game.settings.set(this.MODULE_ID, 'foundryMenuIconColor', colors.foundryMenuIcon),
-            game.settings.set(this.MODULE_ID, 'backgroundColor', colors.background),
-            game.settings.set(this.MODULE_ID, 'mainTextColor', colors.text)
-        ]);
+            // === REST ORDERED ALPHA ===
+            'amber': {
+                border: '#ffaa00',
+                console: '#cc8800',
+                text: '#ffe6b3',
+                background: '#110800',
+                foundryMenuIcon: '#fff0cc'
+            },
+            'black-ice': {
+                border: '#66ccff',
+                console: '#3399cc',
+                text: '#aaddff',
+                background: '#000611',
+                foundryMenuIcon: '#cce9ff'
+            },
+            'blood-red': {
+                border: '#ff3333',
+                console: '#cc2222',
+                text: '#ff9999',
+                background: '#1a0000',
+                foundryMenuIcon: '#ffb3b3'
+            },
+            'blue': {
+                border: '#0099ff',
+                console: '#0077cc',
+                text: '#99d6ff',
+                background: '#001122',
+                foundryMenuIcon: '#cceaff'
+            },
+            'bright-green': {
+                border: '#00ff66',
+                console: '#00cc44',
+                text: '#99ffcc',
+                background: '#001100',
+                foundryMenuIcon: '#ccffe6'
+            },
+            'circuit-blue': {
+                border: '#33ccff',
+                console: '#2299cc',
+                text: '#99e6ff',
+                background: '#000d1a',
+                foundryMenuIcon: '#ccefff'
+            },
+            'cold-steel': {
+                border: '#88aaff',
+                console: '#6688cc',
+                text: '#ccd5ff',
+                background: '#0a0a12',
+                foundryMenuIcon: '#dde4ff'
+            },
+            'corpo-silver': {
+                border: '#cccccc',
+                console: '#999999',
+                text: '#eeeeee',
+                background: '#0d0d0d',
+                foundryMenuIcon: '#ffffff'
+            },
+            'cyan-bright': {
+                border: '#00e5ff',
+                console: '#00b3cc',
+                text: '#99f3ff',
+                background: '#00141a',
+                foundryMenuIcon: '#ccf9ff'
+            },
+            'deep-violet': {
+                border: '#aa33ff',
+                console: '#771fcc',
+                text: '#d8a6ff',
+                background: '#0d001a',
+                foundryMenuIcon: '#e8ccff'
+            },
+            'dim-green': {
+                border: '#006600',
+                console: '#004400',
+                text: '#66cc66',
+                background: '#000000',
+                foundryMenuIcon: '#99e699'
+            },
+            'ember-orange': {
+                border: '#ff9933',
+                console: '#cc7722',
+                text: '#ffd9b3',
+                background: '#1a0d00',
+                foundryMenuIcon: '#ffe6cc'
+            },
+            'ghost-white': {
+                border: '#eeeeee',
+                console: '#cccccc',
+                text: '#ffffff',
+                background: '#121212',
+                foundryMenuIcon: '#ffffff'
+            },
+            'glitch-pink': {
+                border: '#ff66cc',
+                console: '#cc4fa3',
+                text: '#ffb3e6',
+                background: '#1a0014',
+                foundryMenuIcon: '#ffd6f2'
+            },
+            'holo-cyan': {
+                border: '#33ffff',
+                console: '#22cccc',
+                text: '#99ffff',
+                background: '#001414',
+                foundryMenuIcon: '#ccffff'
+            },
+            'ice-blue': {
+                border: '#66ffff',
+                console: '#44cccc',
+                text: '#ccffff',
+                background: '#001111',
+                foundryMenuIcon: '#e6ffff'
+            },
+            'infrared': {
+                border: '#ff3344',
+                console: '#cc222f',
+                text: '#ff99a5',
+                background: '#1a0003',
+                foundryMenuIcon: '#ffb3bd'
+            },
+            'magenta': {
+                border: '#ff00ff',
+                console: '#cc00cc',
+                text: '#ff99ff',
+                background: '#1a001a',
+                foundryMenuIcon: '#ffccff'
+            },
+            'neon-gold': {
+                border: '#ffdd33',
+                console: '#ccaa22',
+                text: '#ffee99',
+                background: '#1a1700',
+                foundryMenuIcon: '#fff2cc'
+            },
+            'night-ops': {
+                border: '#88ffcc',
+                console: '#66cca3',
+                text: '#ccffe6',
+                background: '#000d08',
+                foundryMenuIcon: '#e6fff3'
+            },
+            'orange-glow': {
+                border: '#ff6600',
+                console: '#cc5200',
+                text: '#ffbb99',
+                background: '#1a0d00',
+                foundryMenuIcon: '#ffd6cc'
+            },
+            'plasma-green': {
+                border: '#77ff55',
+                console: '#55cc33',
+                text: '#caffb8',
+                background: '#061a00',
+                foundryMenuIcon: '#e1ffd8'
+            },
+            'purple': {
+                border: '#cc00ff',
+                console: '#9900cc',
+                text: '#e699ff',
+                background: '#110022',
+                foundryMenuIcon: '#f2ccff'
+            },
+            'quantum-blue': {
+                border: '#44aaff',
+                console: '#2288cc',
+                text: '#b3d9ff',
+                background: '#000a19',
+                foundryMenuIcon: '#d6eaff'
+            },
+            'red': {
+                border: '#ff0066',
+                console: '#cc0044',
+                text: '#ff99bb',
+                background: '#110011',
+                foundryMenuIcon: '#ffccdd'
+            },
+            'retro-green': {
+                border: '#55ff55',
+                console: '#33cc33',
+                text: '#b3ffb3',
+                background: '#000a00',
+                foundryMenuIcon: '#d6ffd6'
+            },
+            'shadow-purple': {
+                border: '#aa00ff',
+                console: '#7700cc',
+                text: '#d699ff',
+                background: '#0d0014',
+                foundryMenuIcon: '#ebccff'
+            },
+            'signal-orange': {
+                border: '#ff8844',
+                console: '#cc6a33',
+                text: '#ffd6bb',
+                background: '#1a0f06',
+                foundryMenuIcon: '#ffe6d1'
+            },
+            'synthetic-cyan': {
+                border: '#00ffee',
+                console: '#00bbcc',
+                text: '#99fff7',
+                background: '#001212',
+                foundryMenuIcon: '#ccfffa'
+            },
+            'teal': {
+                border: '#00ffee',
+                console: '#00ccbb',
+                text: '#99fff7',
+                background: '#001111',
+                foundryMenuIcon: '#ccfffa'
+            },
+            'terminal-gray': {
+                border: '#bbbbbb',
+                console: '#888888',
+                text: '#eeeeee',
+                background: '#000000',
+                foundryMenuIcon: '#ffffff'
+            },
+            'toxic-green': {
+                border: '#99ff00',
+                console: '#77cc00',
+                text: '#ccff99',
+                background: '#0d1a00',
+                foundryMenuIcon: '#e6ffcc'
+            },
+            'violet-neon': {
+                border: '#ff33cc',
+                console: '#cc2299',
+                text: '#ff99e6',
+                background: '#1a0011',
+                foundryMenuIcon: '#ffccee'
+            },
+            'yellow-phosphor': {
+                border: '#ffff66',
+                console: '#cccc44',
+                text: '#ffffcc',
+                background: '#111100',
+                foundryMenuIcon: '#ffffe6'
+            },
+            'void-black': {
+                border: '#555555',
+                console: '#333333',
+                text: '#cccccc',
+                background: '#000000',
+                foundryMenuIcon: '#e6e6e6'
+            },
+            'warpaint-red': {
+                border: '#ff1122',
+                console: '#cc0e19',
+                text: '#ff99a3',
+                background: '#120002',
+                foundryMenuIcon: '#ffccd1'
+            }
+        };
 
-        console.log(`${this.MODULE_TITLE} | All color settings saved, now applying styles...`);
+        if (presets[preset]) {
+            const colors = presets[preset];
+            console.log(`${this.MODULE_TITLE} | Applying colors:`, colors);
 
-        // Esperar un momento para que Foundry procese los cambios
-        await new Promise(resolve => setTimeout(resolve, 100));
+            // Guardar todos los settings SIN disparar updateColors en cada onChange
+            await Promise.all([
+                game.settings.set(this.MODULE_ID, 'borderColor', colors.border),
+                game.settings.set(this.MODULE_ID, 'consoleLogColor', colors.console),
+                game.settings.set(this.MODULE_ID, 'foundryMenuIconColor', colors.foundryMenuIcon),
+                game.settings.set(this.MODULE_ID, 'backgroundColor', colors.background),
+                game.settings.set(this.MODULE_ID, 'mainTextColor', colors.text)
+            ]);
 
-        // AHORA aplicar los colores visualmente
-        this.updateColors();
+            console.log(`${this.MODULE_TITLE} | All color settings saved, now applying styles...`);
 
-        ui.notifications.info(`Color preset "${preset}" applied successfully.`);
-    } else {
-        console.warn(`${this.MODULE_TITLE} | Preset not found: ${preset}`);
+            // Esperar un momento para que Foundry procese los cambios
+            await new Promise(resolve => setTimeout(resolve, 100));
+
+            // AHORA aplicar los colores visualmente
+            this.updateColors();
+
+            ui.notifications.info(`Color preset "${preset}" applied successfully.`);
+        } else {
+            console.warn(`${this.MODULE_TITLE} | Preset not found: ${preset}`);
+        }
     }
-}
+
     static applyTerminalEffects() {
         const body = document.body;
 
@@ -775,14 +776,14 @@ class CyberpunkTerminalEffects {
             yes: () => {
                 // Default values
                 const defaults = {
-                    borderColor: '#00ff00',
-                    consoleLogColor: '#00cc00',
-                    foundryMenuIconColor: '#ccffcc',
+                    borderColor: '#009900',
+                    consoleLogColor: '#006600',
+                    foundryMenuIconColor: '#008800',
                     backgroundColor: '#000000',
-                    mainTextColor: '#99ff99',
+                    mainTextColor: '#008800',
                     fontSize: 19,
                     fontFamily: 'mono',
-                    glowIntensity: 5,
+                    glowIntensity: 10,
                     animationSpeed: 150,
                     colorPreset: 'custom'
                 };
