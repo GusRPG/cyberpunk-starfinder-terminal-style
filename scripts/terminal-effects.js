@@ -190,6 +190,17 @@ class CyberpunkTerminalEffects {
             onChange: this.updateColors.bind(this)
         });
 
+        // Dim UI text color
+        game.settings.register(this.MODULE_ID, 'dimTextColor', {
+            name: 'Dim Text Color',
+            hint: 'Dim UI text color',
+            scope: 'world',
+            config: true,
+            type: String,
+            default: '#155315ff',
+            onChange: this.updateColors.bind(this)
+        });
+
         // Foundry Menu and Icons text color
         game.settings.register(this.MODULE_ID, 'foundryMenuIconColor', {
             name: 'Foundry Menu and Icons text color',
@@ -247,6 +258,7 @@ class CyberpunkTerminalEffects {
         const foundryMenuIconColor = game.settings.get(this.MODULE_ID, 'foundryMenuIconColor');
         const backgroundColor = game.settings.get(this.MODULE_ID, 'backgroundColor');
         const mainTextColor = game.settings.get(this.MODULE_ID, 'mainTextColor');
+        const dimTextColor = game.settings.get(this.MODULE_ID, 'dimTextColor');
 
 
         // Create dynamic CSS for colors
@@ -258,9 +270,10 @@ class CyberpunkTerminalEffects {
                 --terminal-bg: ${backgroundColor} !important;
                 --terminal-primary: ${foundryMenuIconColor} !important;
                 --terminal-secondary: ${consoleLogColor} !important;
-                --terminal-dim: ${consoleLogColor} !important;
+                --terminal-dim: ${dimTextColor} !important;
                 --terminal-text: ${mainTextColor} !important; 
                 --terminal-border: ${borderColor} !important;
+                
             }
         `;
 
@@ -385,6 +398,7 @@ class CyberpunkTerminalEffects {
                 border: '#00ff00',
                 console: '#00cc00',
                 text: '#99ff99',
+                dimText: '#55aa55',
                 background: '#000000',
                 foundryMenuIcon: '#ccffcc'
             },
@@ -392,6 +406,7 @@ class CyberpunkTerminalEffects {
                 border: '#00ff33',
                 console: '#00aa22',
                 text: '#ff7f1a',
+                dimText: '#b35a12',
                 background: '#000000',
                 foundryMenuIcon: '#ffb366'
             },
@@ -401,6 +416,7 @@ class CyberpunkTerminalEffects {
                 border: '#ffaa00',
                 console: '#cc8800',
                 text: '#ffe6b3',
+                dimText: '#b39980',
                 background: '#110800',
                 foundryMenuIcon: '#fff0cc'
             },
@@ -408,6 +424,7 @@ class CyberpunkTerminalEffects {
                 border: '#66ccff',
                 console: '#3399cc',
                 text: '#aaddff',
+                dimText: '#6f96b3',
                 background: '#000611',
                 foundryMenuIcon: '#cce9ff'
             },
@@ -415,6 +432,7 @@ class CyberpunkTerminalEffects {
                 border: '#ff3333',
                 console: '#cc2222',
                 text: '#ff9999',
+                dimText: '#b36b6b',
                 background: '#1a0000',
                 foundryMenuIcon: '#ffb3b3'
             },
@@ -422,6 +440,7 @@ class CyberpunkTerminalEffects {
                 border: '#0099ff',
                 console: '#0077cc',
                 text: '#99d6ff',
+                dimText: '#6691b3',
                 background: '#001122',
                 foundryMenuIcon: '#cceaff'
             },
@@ -429,6 +448,7 @@ class CyberpunkTerminalEffects {
                 border: '#00ff66',
                 console: '#00cc44',
                 text: '#99ffcc',
+                dimText: '#66b394',
                 background: '#001100',
                 foundryMenuIcon: '#ccffe6'
             },
@@ -436,6 +456,7 @@ class CyberpunkTerminalEffects {
                 border: '#33ccff',
                 console: '#2299cc',
                 text: '#99e6ff',
+                dimText: '#66a2b3',
                 background: '#000d1a',
                 foundryMenuIcon: '#ccefff'
             },
@@ -443,6 +464,7 @@ class CyberpunkTerminalEffects {
                 border: '#88aaff',
                 console: '#6688cc',
                 text: '#ccd5ff',
+                dimText: '#8f95b3',
                 background: '#0a0a12',
                 foundryMenuIcon: '#dde4ff'
             },
@@ -450,6 +472,7 @@ class CyberpunkTerminalEffects {
                 border: '#cccccc',
                 console: '#999999',
                 text: '#eeeeee',
+                dimText: '#9e9e9e',
                 background: '#0d0d0d',
                 foundryMenuIcon: '#ffffff'
             },
@@ -457,6 +480,7 @@ class CyberpunkTerminalEffects {
                 border: '#00e5ff',
                 console: '#00b3cc',
                 text: '#99f3ff',
+                dimText: '#66a8b3',
                 background: '#00141a',
                 foundryMenuIcon: '#ccf9ff'
             },
@@ -464,6 +488,7 @@ class CyberpunkTerminalEffects {
                 border: '#aa33ff',
                 console: '#771fcc',
                 text: '#d8a6ff',
+                dimText: '#9273b3',
                 background: '#0d001a',
                 foundryMenuIcon: '#e8ccff'
             },
@@ -471,6 +496,7 @@ class CyberpunkTerminalEffects {
                 border: '#006600',
                 console: '#004400',
                 text: '#66cc66',
+                dimText: '#3d7a3d',
                 background: '#000000',
                 foundryMenuIcon: '#99e699'
             },
@@ -478,6 +504,7 @@ class CyberpunkTerminalEffects {
                 border: '#ff9933',
                 console: '#cc7722',
                 text: '#ffd9b3',
+                dimText: '#b38f80',
                 background: '#1a0d00',
                 foundryMenuIcon: '#ffe6cc'
             },
@@ -485,6 +512,7 @@ class CyberpunkTerminalEffects {
                 border: '#eeeeee',
                 console: '#cccccc',
                 text: '#ffffff',
+                dimText: '#9c9c9c',
                 background: '#121212',
                 foundryMenuIcon: '#ffffff'
             },
@@ -492,6 +520,7 @@ class CyberpunkTerminalEffects {
                 border: '#ff66cc',
                 console: '#cc4fa3',
                 text: '#ffb3e6',
+                dimText: '#b37fa0',
                 background: '#1a0014',
                 foundryMenuIcon: '#ffd6f2'
             },
@@ -499,6 +528,7 @@ class CyberpunkTerminalEffects {
                 border: '#33ffff',
                 console: '#22cccc',
                 text: '#99ffff',
+                dimText: '#66b3b3',
                 background: '#001414',
                 foundryMenuIcon: '#ccffff'
             },
@@ -506,6 +536,7 @@ class CyberpunkTerminalEffects {
                 border: '#66ffff',
                 console: '#44cccc',
                 text: '#ccffff',
+                dimText: '#80b3b3',
                 background: '#001111',
                 foundryMenuIcon: '#e6ffff'
             },
@@ -513,6 +544,7 @@ class CyberpunkTerminalEffects {
                 border: '#ff3344',
                 console: '#cc222f',
                 text: '#ff99a5',
+                dimText: '#b36b72',
                 background: '#1a0003',
                 foundryMenuIcon: '#ffb3bd'
             },
@@ -520,6 +552,7 @@ class CyberpunkTerminalEffects {
                 border: '#ff00ff',
                 console: '#cc00cc',
                 text: '#ff99ff',
+                dimText: '#b36bb3',
                 background: '#1a001a',
                 foundryMenuIcon: '#ffccff'
             },
@@ -527,6 +560,7 @@ class CyberpunkTerminalEffects {
                 border: '#ffdd33',
                 console: '#ccaa22',
                 text: '#ffee99',
+                dimText: '#b3a868',
                 background: '#1a1700',
                 foundryMenuIcon: '#fff2cc'
             },
@@ -534,6 +568,7 @@ class CyberpunkTerminalEffects {
                 border: '#88ffcc',
                 console: '#66cca3',
                 text: '#ccffe6',
+                dimText: '#80b39c',
                 background: '#000d08',
                 foundryMenuIcon: '#e6fff3'
             },
@@ -541,6 +576,7 @@ class CyberpunkTerminalEffects {
                 border: '#ff6600',
                 console: '#cc5200',
                 text: '#ffbb99',
+                dimText: '#b3836b',
                 background: '#1a0d00',
                 foundryMenuIcon: '#ffd6cc'
             },
@@ -548,6 +584,7 @@ class CyberpunkTerminalEffects {
                 border: '#77ff55',
                 console: '#55cc33',
                 text: '#caffb8',
+                dimText: '#8ab380',
                 background: '#061a00',
                 foundryMenuIcon: '#e1ffd8'
             },
@@ -555,6 +592,7 @@ class CyberpunkTerminalEffects {
                 border: '#cc00ff',
                 console: '#9900cc',
                 text: '#e699ff',
+                dimText: '#9e66b3',
                 background: '#110022',
                 foundryMenuIcon: '#f2ccff'
             },
@@ -562,6 +600,7 @@ class CyberpunkTerminalEffects {
                 border: '#44aaff',
                 console: '#2288cc',
                 text: '#b3d9ff',
+                dimText: '#7996b3',
                 background: '#000a19',
                 foundryMenuIcon: '#d6eaff'
             },
@@ -569,6 +608,7 @@ class CyberpunkTerminalEffects {
                 border: '#ff0066',
                 console: '#cc0044',
                 text: '#ff99bb',
+                dimText: '#b36b80',
                 background: '#110011',
                 foundryMenuIcon: '#ffccdd'
             },
@@ -576,6 +616,7 @@ class CyberpunkTerminalEffects {
                 border: '#55ff55',
                 console: '#33cc33',
                 text: '#b3ffb3',
+                dimText: '#80b380',
                 background: '#000a00',
                 foundryMenuIcon: '#d6ffd6'
             },
@@ -583,6 +624,7 @@ class CyberpunkTerminalEffects {
                 border: '#aa00ff',
                 console: '#7700cc',
                 text: '#d699ff',
+                dimText: '#9266b3',
                 background: '#0d0014',
                 foundryMenuIcon: '#ebccff'
             },
@@ -590,6 +632,7 @@ class CyberpunkTerminalEffects {
                 border: '#ff8844',
                 console: '#cc6a33',
                 text: '#ffd6bb',
+                dimText: '#b38f80',
                 background: '#1a0f06',
                 foundryMenuIcon: '#ffe6d1'
             },
@@ -597,6 +640,7 @@ class CyberpunkTerminalEffects {
                 border: '#00ffee',
                 console: '#00bbcc',
                 text: '#99fff7',
+                dimText: '#66b3ae',
                 background: '#001212',
                 foundryMenuIcon: '#ccfffa'
             },
@@ -604,6 +648,7 @@ class CyberpunkTerminalEffects {
                 border: '#00ffee',
                 console: '#00ccbb',
                 text: '#99fff7',
+                dimText: '#66b3ae',
                 background: '#001111',
                 foundryMenuIcon: '#ccfffa'
             },
@@ -611,6 +656,7 @@ class CyberpunkTerminalEffects {
                 border: '#bbbbbb',
                 console: '#888888',
                 text: '#eeeeee',
+                dimText: '#9c9c9c',
                 background: '#000000',
                 foundryMenuIcon: '#ffffff'
             },
@@ -618,6 +664,7 @@ class CyberpunkTerminalEffects {
                 border: '#99ff00',
                 console: '#77cc00',
                 text: '#ccff99',
+                dimText: '#8ab366',
                 background: '#0d1a00',
                 foundryMenuIcon: '#e6ffcc'
             },
@@ -625,6 +672,7 @@ class CyberpunkTerminalEffects {
                 border: '#ff33cc',
                 console: '#cc2299',
                 text: '#ff99e6',
+                dimText: '#b366a0',
                 background: '#1a0011',
                 foundryMenuIcon: '#ffccee'
             },
@@ -632,6 +680,7 @@ class CyberpunkTerminalEffects {
                 border: '#ffff66',
                 console: '#cccc44',
                 text: '#ffffcc',
+                dimText: '#b3b38a',
                 background: '#111100',
                 foundryMenuIcon: '#ffffe6'
             },
@@ -639,6 +688,7 @@ class CyberpunkTerminalEffects {
                 border: '#555555',
                 console: '#333333',
                 text: '#cccccc',
+                dimText: '#7a7a7a',
                 background: '#000000',
                 foundryMenuIcon: '#e6e6e6'
             },
@@ -646,9 +696,11 @@ class CyberpunkTerminalEffects {
                 border: '#ff1122',
                 console: '#cc0e19',
                 text: '#ff99a3',
+                dimText: '#b36b72',
                 background: '#120002',
                 foundryMenuIcon: '#ffccd1'
             }
+
         };
 
         if (presets[preset]) {
@@ -661,7 +713,8 @@ class CyberpunkTerminalEffects {
                 game.settings.set(this.MODULE_ID, 'consoleLogColor', colors.console),
                 game.settings.set(this.MODULE_ID, 'foundryMenuIconColor', colors.foundryMenuIcon),
                 game.settings.set(this.MODULE_ID, 'backgroundColor', colors.background),
-                game.settings.set(this.MODULE_ID, 'mainTextColor', colors.text)
+                game.settings.set(this.MODULE_ID, 'mainTextColor', colors.text),
+                game.settings.set(this.MODULE_ID, 'dimTextColor', colors.dimText)
             ]);
 
             console.log(`${this.MODULE_TITLE} | All color settings saved, now applying styles...`);
@@ -779,6 +832,7 @@ class CyberpunkTerminalEffects {
                     borderColor: '#009900',
                     consoleLogColor: '#006600',
                     foundryMenuIconColor: '#008800',
+                    dimTextColor: '#155315ff',
                     backgroundColor: '#000000',
                     mainTextColor: '#008800',
                     fontSize: 19,

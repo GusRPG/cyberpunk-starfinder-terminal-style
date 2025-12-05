@@ -31,7 +31,7 @@ body {
   --terminal-bg: #000000;
   --terminal-primary: #009900;
   --terminal-secondary: #006600;
-  --terminal-dim: #003300;
+  --terminal-dim: #0b530b;
   --terminal-text: #008800;
   --terminal-warning: #cccc00;
   --terminal-error: #cc0000;
@@ -186,7 +186,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 
 /* Individual messages */
 #chat-log .message {
-  border-bottom: 1px solid var(--terminal-dim) !important;
+  border-bottom: 1px solid var(--terminal-secondary) !important;
   padding: 12px !important;
   color: var(--terminal-text) !important;
 }
@@ -851,7 +851,7 @@ i:not([class*="fa-"]):not(.colored-icon),
 
 *::-webkit-scrollbar-track {
   background-color: var(--terminal-bg);
-  border: 1px solid var(--terminal-dim);
+  border: 1px solid var(--terminal-secondary);
 }
 
 *::-webkit-scrollbar-thumb {
@@ -1260,9 +1260,58 @@ h3.description-header {
   text-shadow: var(--terminal-text-shadow) !important;
 }
 
-Esto hará que los headers (h3) se vean en verde destacado (--terminal-primary) y los labels en el color de texto normal (--terminal-text).
-Session limit reached ∙ resets 5:00 AM
-Upgrade
+/* === PLACEHOLDER TEXT STYLING - USE TERMINAL DIM COLOR === */
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+    color: var(--terminal-dim) !important;
+    opacity: 1 !important;
+}
+
+/* Específico para los inputs mencionados */
+input[name="system.attributes.space"]::placeholder,
+input.ability-drain::placeholder,
+input.temphp::placeholder,
+input.singleLine::placeholder,
+input[name="system.details.biography.dateOfBirth"]::placeholder,
+input[name="system.details.biography.genderPronouns"]::placeholder {
+    color: var(--terminal-dim) !important;
+    opacity: 1 !important;
+}
+
+/* texto ingresado también sea dim cuando está vacío */
+input[type="text"]:placeholder-shown,
+input[type="number"]:placeholder-shown {
+    color: var(--terminal-dim) !important;
+}
 
 
+
+
+/* === CHAT LOG THEMED === */
+ol.chat-log.plain.themed.theme-light,
+ol.chat-log.plain.themed,
+ol.chat-log.themed {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+/* === CHAT MESSAGE === */
+.chat-message.message.flexcol,
+.chat-message.message.flexcol.hovered,
+li.chat-message.message.flexcol,
+li.chat-message.message.flexcol.hovered {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+/* Todos los elementos internos del mensaje */
+.chat-message.message.flexcol *,
+.chat-message.message.flexcol.hovered * {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
 
