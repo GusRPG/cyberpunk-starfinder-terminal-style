@@ -1315,3 +1315,39 @@ li.chat-message.message.flexcol.hovered {
   background-image: none !important;
 }
 
+
+/* === SEARCH INPUT === */
+input.search-input[type="search"],
+input.search-input {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-dim) !important;
+  border: 1px solid var(--terminal-border) !important;
+}
+
+input.search-input[type="search"]::placeholder,
+input.search-input::placeholder {
+  color: var(--terminal-dim) !important;
+  opacity: 1 !important;
+}
+
+/* === ACTION IMAGE FIX === */
+.action-image.small,
+div.action-image.small {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  width: 25px !important;
+  height: 25px !important;
+  min-width: 25px !important;
+  min-height: 25px !important;
+  flex: 0 0 25px !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Si está dentro de un contenedor con fondo */
+.action-image.small {
+  background-color: transparent !important;
+}
+
