@@ -1351,3 +1351,41 @@ div.action-image.small {
   background-color: transparent !important;
 }
 
+.sfrpg.sheet.actor.vehicle .passenger-action .pilotPilotingSkill:hover,
+.sfrpg.sheet.actor.vehicle .passenger-action .pilotPilotingSkill:focus { 
+    background-image: url(../../icons/svg/d20-grey.svg); 
+}
+
+/* === SEAL - DEBE SER LA ÚLTIMA REGLA DEL CSS === */
+.seal,
+div.seal,
+.wrapper-input .seal,
+.chat-container .seal,
+.message-content .seal,
+.wrath-and-glory.roll .seal,
+#chat-log .seal,
+#chat .seal,
+body.wng-theme .chat-message .roll .seal {
+  background: transparent url("/modules/wng-core/assets/ui/approved.webp") no-repeat center !important;
+  background-size: 100px !important;
+  background-color: transparent !important;
+  width: 100px !important;
+  height: 100px !important;
+  display: block !important;
+  position: absolute !important;
+  right: -12px !important;
+  top: -40px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: brightness(1.5) !important; /* Más claro - ajusta el valor (1.0 = normal, 2.0 = muy claro) */
+}
+
+.seal.approved {
+  background-image: url("/modules/wng-core/assets/ui/approved.webp") !important;
+}
+
+.seal.heresy {
+  background-image: url("/modules/wng-core/assets/ui/heresy.webp") !important;
+}
