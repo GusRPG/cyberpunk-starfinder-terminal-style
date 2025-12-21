@@ -1,7 +1,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Foundry%20VTT-Compatible-brightgreen?style=for-the-badge&logo=foundryvirtualtabletop" />
   <img src="https://img.shields.io/badge/System-Cyberpunk%202020%20%7C%20Starfinder%201E-neon?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Version-1.0.1-cyan?style=for-the-badge" />
 </p>
 
 ---
