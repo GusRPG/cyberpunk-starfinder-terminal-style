@@ -20,7 +20,7 @@
 
 /* Local system fonts (fallbacks) */
 body {
-    font-family: 'Courier Prime', 'Share Tech Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
+  font-family: 'Courier Prime', 'Share Tech Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
 }
 
 /* IMPORTANT: Ensure Font Awesome is loaded */
@@ -44,13 +44,27 @@ body {
 
 /* SPECIFIC EXCLUSIONS FOR ICONS - VERY IMPORTANT */
 /* DO NOT apply terminal styles to icon elements */
-i, .fa, .fas, .far, .fab, .fal, .fad, .fass, .fasr, .fasl,
+i,
+.fa,
+.fas,
+.far,
+.fab,
+.fal,
+.fad,
+.fass,
+.fasr,
+.fasl,
 [class*="fa-"]:before,
 [class^="fa-"]:before,
 .icon:before,
-.fas:before, .far:before, .fab:before, .fal:before, .fad:before {
+.fas:before,
+.far:before,
+.fab:before,
+.fal:before,
+.fad:before {
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro", "Font Awesome 5 Brands", "FontAwesome" !important;
-  font-weight: 900 !important; /* Font Awesome needs specific font-weight */
+  font-weight: 900 !important;
+  /* Font Awesome needs specific font-weight */
   font-style: normal !important;
   font-variant: normal !important;
   text-rendering: auto !important;
@@ -76,11 +90,26 @@ i, .fa, .fas, .far, .fab, .fal, .fad, .fass, .fasr, .fasl,
 
 /* SPECIFIC RULES FOR ICONS - Completely preserve Font Awesome */
 .cyberpunk i,
-.cyberpunk .fa, .cyberpunk .fas, .cyberpunk .far, .cyberpunk .fab,
-.cyberpunk .fal, .cyberpunk .fad, .cyberpunk .fass, .cyberpunk .fasr, .cyberpunk .fasl,
-.cyberpunk [class*="fa-"], .cyberpunk [class^="fa-"],
+.cyberpunk .fa,
+.cyberpunk .fas,
+.cyberpunk .far,
+.cyberpunk .fab,
+.cyberpunk .fal,
+.cyberpunk .fad,
+.cyberpunk .fass,
+.cyberpunk .fasr,
+.cyberpunk .fasl,
+.cyberpunk [class*="fa-"],
+.cyberpunk [class^="fa-"],
 .cyberpunk .icon,
-i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
+i.fas,
+i.far,
+i.fab,
+i.fal,
+i.fad,
+i.fass,
+i.fasr,
+i.fasl {
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro", "Font Awesome 5 Brands", "FontAwesome" !important;
   font-weight: 900 !important;
   font-style: normal !important;
@@ -126,9 +155,9 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 }
 
 /* NUCLEAR OVERRIDE FOR BACKGROUND - Apply to absolutely EVERYTHING in chat */
-#chat *, 
-#chat-log *, 
-#chat-log ol *, 
+#chat *,
+#chat-log *,
+#chat-log ol *,
 #chat-log li *,
 #chat-log .message *,
 #chat-log .message-content *,
@@ -153,8 +182,8 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 }
 
 /* NUCLEAR OVERRIDE FOR TEXT COLOR - Use --terminal-text for normal text */
-#chat-log *, 
-#chat-log ol *, 
+#chat-log *,
+#chat-log ol *,
 #chat-log li *,
 #chat-log .message *,
 #chat-log .message-content *,
@@ -169,11 +198,23 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 
 /* Exclude only Font Awesome icons */
 #chat i,
-#chat .fa, #chat .fas, #chat .far, #chat .fab, #chat .fal, #chat .fad,
-#chat [class*="fa-"], #chat [class^="fa-"],
+#chat .fa,
+#chat .fas,
+#chat .far,
+#chat .fab,
+#chat .fal,
+#chat .fad,
+#chat [class*="fa-"],
+#chat [class^="fa-"],
 #chat-log i,
-#chat-log .fa, #chat-log .fas, #chat-log .far, #chat-log .fab, #chat-log .fal, #chat-log .fad,
-#chat-log [class*="fa-"], #chat-log [class^="fa-"] {
+#chat-log .fa,
+#chat-log .fas,
+#chat-log .far,
+#chat-log .fab,
+#chat-log .fal,
+#chat-log .fad,
+#chat-log [class*="fa-"],
+#chat-log [class^="fa-"] {
   background: none !important;
   background-color: transparent !important;
   color: var(--terminal-primary) !important;
@@ -245,17 +286,17 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 }
 
 /* Ultra aggressive universal selector as last resort for background */
-#chat-log > * {
+#chat-log>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-#chat-log > * > * {
+#chat-log>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-#chat-log > * > * > * {
+#chat-log>*>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
@@ -292,7 +333,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   color: var(--terminal-text) !important;
 }
 
-#chat-log > * > * > * > * {
+#chat-log>*>*>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
@@ -446,32 +487,32 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 }
 
 /* Ultra aggressive universal selectors for popup background as last resort */
-#chat-popout > * {
+#chat-popout>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-#chat-popout > * > * {
+#chat-popout>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-#chat-popout > * > * > * {
+#chat-popout>*>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-.chat-popout > * {
+.chat-popout>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-.chat-popout > * > * {
+.chat-popout>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-#dice-notification > * {
+#dice-notification>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
@@ -535,22 +576,22 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 }
 
 /* Ultra aggressive universal selectors for popout background */
-.chat-popout > * {
+.chat-popout>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-.chat-popout > * > * {
+.chat-popout>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-.chat-popout > * > * > * {
+.chat-popout>*>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
 
-.chat-popout > * > * > * > * {
+.chat-popout>*>*>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
 }
@@ -623,7 +664,7 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
   text-shadow: 0 0 2px var(--terminal-warning) !important;
 }
 
-#dice-notification > * > * {
+#dice-notification>*>* {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
   color: var(--terminal-text) !important;
@@ -642,19 +683,25 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 
 /* === DIALOGS AND FORMS === */
 /* Windows and all their internal elements - Background nuclear */
-.dialog, .window-app,
-.dialog *:not(.item-image), .window-app *:not(.item-image),
-.dialog .window-frame, .window-app .window-frame,
-.dialog .window-header, .window-app .window-header,
-.dialog .window-content, .window-app .window-content,
-.dialog .window-resizable-handle, .window-app .window-resizable-handle {
+.dialog,
+.window-app,
+.dialog *:not(.item-image),
+.window-app *:not(.item-image),
+.dialog .window-frame,
+.window-app .window-frame,
+.dialog .window-header,
+.window-app .window-header,
+.dialog .window-content,
+.window-app .window-content,
+.dialog .window-resizable-handle,
+.window-app .window-resizable-handle {
   background-color: var(--terminal-bg) !important;
   background: var(--terminal-bg) !important;
   background-image: none !important;
 }
 
 /* Window content - Normal text */
-.dialog .window-content, 
+.dialog .window-content,
 .window-app .window-content {
   color: var(--terminal-text) !important;
   font-family: var(--terminal-font) !important;
@@ -685,7 +732,8 @@ i.fas, i.far, i.fab, i.fal, i.fad, i.fass, i.fasr, i.fasl {
 .dialog select,
 .window-app select {
   background-color: var(--terminal-bg) !important;
-  color: var(--terminal-text) !important;  /* ¡Cambiado a --terminal-text para que use el color de texto normal! */
+  color: var(--terminal-text) !important;
+  /* ¡Cambiado a --terminal-text para que use el color de texto normal! */
   border: 1px solid var(--terminal-border) !important;
   font-family: var(--terminal-font) !important;
   font-size: var(--terminal-font-size) !important;
@@ -793,14 +841,45 @@ a[data-action="duplicate"] i,
 }
 
 /* Tool icons in left bar - different colors */
-#controls .control-tool:nth-child(1) i { color: #ff6666 !important; text-shadow: 0 0 3px #ff6666 !important; }
-#controls .control-tool:nth-child(2) i { color: #66ff66 !important; text-shadow: 0 0 3px #66ff66 !important; }
-#controls .control-tool:nth-child(3) i { color: #6666ff !important; text-shadow: 0 0 3px #6666ff !important; }
-#controls .control-tool:nth-child(4) i { color: #ffff66 !important; text-shadow: 0 0 3px #ffff66 !important; }
-#controls .control-tool:nth-child(5) i { color: #ff66ff !important; text-shadow: 0 0 3px #ff66ff !important; }
-#controls .control-tool:nth-child(6) i { color: #66ffff !important; text-shadow: 0 0 3px #66ffff !important; }
-#controls .control-tool:nth-child(7) i { color: #ffaa66 !important; text-shadow: 0 0 3px #ffaa66 !important; }
-#controls .control-tool:nth-child(8) i { color: #aa66ff !important; text-shadow: 0 0 3px #aa66ff !important; }
+#controls .control-tool:nth-child(1) i {
+  color: #ff6666 !important;
+  text-shadow: 0 0 3px #ff6666 !important;
+}
+
+#controls .control-tool:nth-child(2) i {
+  color: #66ff66 !important;
+  text-shadow: 0 0 3px #66ff66 !important;
+}
+
+#controls .control-tool:nth-child(3) i {
+  color: #6666ff !important;
+  text-shadow: 0 0 3px #6666ff !important;
+}
+
+#controls .control-tool:nth-child(4) i {
+  color: #ffff66 !important;
+  text-shadow: 0 0 3px #ffff66 !important;
+}
+
+#controls .control-tool:nth-child(5) i {
+  color: #ff66ff !important;
+  text-shadow: 0 0 3px #ff66ff !important;
+}
+
+#controls .control-tool:nth-child(6) i {
+  color: #66ffff !important;
+  text-shadow: 0 0 3px #66ffff !important;
+}
+
+#controls .control-tool:nth-child(7) i {
+  color: #ffaa66 !important;
+  text-shadow: 0 0 3px #ffaa66 !important;
+}
+
+#controls .control-tool:nth-child(8) i {
+  color: #aa66ff !important;
+  text-shadow: 0 0 3px #aa66ff !important;
+}
 
 /* Default icons - Terminal green */
 i:not([class*="fa-"]):not(.colored-icon),
@@ -811,14 +890,45 @@ i:not([class*="fa-"]):not(.colored-icon),
 }
 
 /* Specific Foundry VTT icons */
-.fa-dice-d20:before { color: #ff6b6b !important; text-shadow: 0 0 3px #ff6b6b !important; }
-.fa-crosshairs:before { color: #4ecdc4 !important; text-shadow: 0 0 3px #4ecdc4 !important; }
-.fa-users:before { color: #45b7d1 !important; text-shadow: 0 0 3px #45b7d1 !important; }
-.fa-map:before { color: #96ceb4 !important; text-shadow: 0 0 3px #96ceb4 !important; }
-.fa-music:before { color: #feca57 !important; text-shadow: 0 0 3px #feca57 !important; }
-.fa-scroll:before { color: #ff9ff3 !important; text-shadow: 0 0 3px #ff9ff3 !important; }
-.fa-book:before { color: #54a0ff !important; text-shadow: 0 0 3px #54a0ff !important; }
-.fa-toolbox:before { color: #5f27cd !important; text-shadow: 0 0 3px #5f27cd !important; }
+.fa-dice-d20:before {
+  color: #ff6b6b !important;
+  text-shadow: 0 0 3px #ff6b6b !important;
+}
+
+.fa-crosshairs:before {
+  color: #4ecdc4 !important;
+  text-shadow: 0 0 3px #4ecdc4 !important;
+}
+
+.fa-users:before {
+  color: #45b7d1 !important;
+  text-shadow: 0 0 3px #45b7d1 !important;
+}
+
+.fa-map:before {
+  color: #96ceb4 !important;
+  text-shadow: 0 0 3px #96ceb4 !important;
+}
+
+.fa-music:before {
+  color: #feca57 !important;
+  text-shadow: 0 0 3px #feca57 !important;
+}
+
+.fa-scroll:before {
+  color: #ff9ff3 !important;
+  text-shadow: 0 0 3px #ff9ff3 !important;
+}
+
+.fa-book:before {
+  color: #54a0ff !important;
+  text-shadow: 0 0 3px #54a0ff !important;
+}
+
+.fa-toolbox:before {
+  color: #5f27cd !important;
+  text-shadow: 0 0 3px #5f27cd !important;
+}
 
 /* Sidebar with standard icons */
 #sidebar .directory-item .entry-name {
@@ -867,8 +977,16 @@ i:not([class*="fa-"]):not(.colored-icon),
 
 /* Animation effects */
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Main content of windows */
@@ -900,7 +1018,7 @@ i:not([class*="fa-"]):not(.colored-icon),
   padding: 0;
 }
 
-.cyberpunk section.window-content nav.tabs > .item {
+.cyberpunk section.window-content nav.tabs>.item {
   background-color: var(--terminal-bg);
   color: var(--terminal-secondary);
   border: 1px solid var(--terminal-dim);
@@ -911,15 +1029,15 @@ i:not([class*="fa-"]):not(.colored-icon),
   position: relative;
 }
 
-.cyberpunk section.window-content nav.tabs > .item::before {
+.cyberpunk section.window-content nav.tabs>.item::before {
   content: '[ ';
 }
 
-.cyberpunk section.window-content nav.tabs > .item::after {
+.cyberpunk section.window-content nav.tabs>.item::after {
   content: ' ]';
 }
 
-.cyberpunk section.window-content nav.tabs > .item.active {
+.cyberpunk section.window-content nav.tabs>.item.active {
   color: var(--terminal-primary);
   background-color: var(--terminal-bg);
   border-color: var(--terminal-border);
@@ -927,7 +1045,7 @@ i:not([class*="fa-"]):not(.colored-icon),
   text-shadow: var(--terminal-text-shadow);
 }
 
-.cyberpunk section.window-content nav.tabs > .item:hover {
+.cyberpunk section.window-content nav.tabs>.item:hover {
   color: var(--terminal-primary);
   border-color: var(--terminal-secondary);
   text-shadow: var(--terminal-text-shadow);
@@ -954,7 +1072,7 @@ i:not([class*="fa-"]):not(.colored-icon),
   animation: blink 2s infinite;
 }
 
-.cyberpunk h1.title > input {
+.cyberpunk h1.title>input {
   background-color: transparent;
   border: none;
   color: var(--terminal-text);
@@ -965,7 +1083,8 @@ i:not([class*="fa-"]):not(.colored-icon),
 }
 
 /* Buttons */
-button, .button {
+button,
+.button {
   background-color: var(--terminal-bg) !important;
   color: var(--terminal-primary) !important;
   border: 1px solid var(--terminal-border) !important;
@@ -976,7 +1095,8 @@ button, .button {
   padding: 6px 12px !important;
 }
 
-button:hover, .button:hover {
+button:hover,
+.button:hover {
   box-shadow: var(--terminal-glow) !important;
   color: var(--terminal-bg) !important;
   background-color: var(--terminal-primary) !important;
@@ -988,7 +1108,7 @@ button:hover, .button:hover {
 hr,
 .separator,
 .divider,
-.form-group + .form-group,
+.form-group+.form-group,
 .form-fields .form-group,
 section.window-content .form-group {
   border-color: var(--terminal-border) !important;
@@ -1100,7 +1220,8 @@ nav.tabs .item,
   inset: 0;
   background-color: transparent;
   z-index: 1;
-  pointer-events: none; /* doesn't block clicks */
+  pointer-events: none;
+  /* doesn't block clicks */
 }
 
 /* Filled box */
@@ -1119,12 +1240,14 @@ nav.tabs .item,
 }
 
 /* Separators */
-.wound-tracker .damage + .damage {
+.wound-tracker .damage+.damage {
   border-left-width: 0px;
 }
+
 .wound-tracker .damage.leftmost {
   border-left-width: 0px;
 }
+
 .wound-tracker .damage.rightmost {
   border-right-width: 0px;
 }
@@ -1140,12 +1263,13 @@ nav.tabs .item,
   display: flex;
   align-items: center;
   padding-right: 3px;
-  position: relative; /* needed for pseudo-element */
+  position: relative;
+  /* needed for pseudo-element */
   cursor: pointer;
 }
 
 /* Text inside chip */
-.field.skill label.chip-toggle > * {
+.field.skill label.chip-toggle>* {
   font-variant: all-small-caps;
 }
 
@@ -1164,12 +1288,14 @@ nav.tabs .item,
   background-size: cover;
   background-position: center;
   transition: opacity 0.2s ease-in-out;
-  opacity: 1; /* activated state */
+  opacity: 1;
+  /* activated state */
 }
 
 /* Activated chip */
-.field.skill input[type=checkbox]:checked + .chip-icon::before {
-  opacity: 1; /* fully visible */
+.field.skill input[type=checkbox]:checked+.chip-icon::before {
+  opacity: 1;
+  /* fully visible */
 }
 
 /* SEARCH ICON */
@@ -1205,7 +1331,9 @@ nav.tabs .item,
   box-shadow: var(--terminal-glow) !important;
 }
 
-css/* === DICE TRAY OVERRIDE - MÁXIMA ESPECIFICIDAD === */
+css
+
+/* === DICE TRAY OVERRIDE - MÁXIMA ESPECIFICIDAD === */
 #chat .dice-tray__button .dice,
 #chat .dice-tray .dice-tray__button .dice,
 .dice-tray .dice-tray__button .dice {
@@ -1264,8 +1392,8 @@ h3.description-header {
 input[type="text"]::placeholder,
 input[type="number"]::placeholder,
 textarea::placeholder {
-    color: var(--terminal-dim) !important;
-    opacity: 1 !important;
+  color: var(--terminal-dim) !important;
+  opacity: 1 !important;
 }
 
 /* Específico para los inputs mencionados */
@@ -1275,14 +1403,14 @@ input.temphp::placeholder,
 input.singleLine::placeholder,
 input[name="system.details.biography.dateOfBirth"]::placeholder,
 input[name="system.details.biography.genderPronouns"]::placeholder {
-    color: var(--terminal-dim) !important;
-    opacity: 1 !important;
+  color: var(--terminal-dim) !important;
+  opacity: 1 !important;
 }
 
 /* texto ingresado también sea dim cuando está vacío */
 input[type="text"]:placeholder-shown,
 input[type="number"]:placeholder-shown {
-    color: var(--terminal-dim) !important;
+  color: var(--terminal-dim) !important;
 }
 
 
@@ -1352,8 +1480,8 @@ div.action-image.small {
 }
 
 .sfrpg.sheet.actor.vehicle .passenger-action .pilotPilotingSkill:hover,
-.sfrpg.sheet.actor.vehicle .passenger-action .pilotPilotingSkill:focus { 
-    background-image: url(../../icons/svg/d20-grey.svg); 
+.sfrpg.sheet.actor.vehicle .passenger-action .pilotPilotingSkill:focus {
+  background-image: url(../../icons/svg/d20-grey.svg);
 }
 
 /* === SEAL - DEBE SER LA ÚLTIMA REGLA DEL CSS === */
@@ -1379,7 +1507,8 @@ body.wng-theme .chat-message .roll .seal {
   border-radius: 0 !important;
   opacity: 1 !important;
   visibility: visible !important;
-  filter: brightness(1.5) !important; /* Más claro - ajusta el valor (1.0 = normal, 2.0 = muy claro) */
+  filter: brightness(1.5) !important;
+  /* Más claro - ajusta el valor (1.0 = normal, 2.0 = muy claro) */
 }
 
 .seal.approved {
@@ -2304,7 +2433,12 @@ header.sheet-header img {
 }
 
 /* === HEADERS FIX (H1-H6) === */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--terminal-font) !important;
   color: var(--terminal-primary) !important;
   text-shadow: var(--terminal-text-shadow) !important;
@@ -2425,9 +2559,9 @@ li.context-item:hover i {
 /* === GLOW EFFECT FOR SELECTED DICE === */
 .wrath-and-glory.roll .die.selected,
 a.die.selected {
-  box-shadow: 0 0 10px var(--terminal-primary), 
-              0 0 20px var(--terminal-primary), 
-              0 0 30px var(--terminal-primary) !important;
+  box-shadow: 0 0 10px var(--terminal-primary),
+    0 0 20px var(--terminal-primary),
+    0 0 30px var(--terminal-primary) !important;
   border: 2px solid var(--terminal-primary) !important;
   animation: pulse-glow 1.5s ease-in-out infinite;
 }
@@ -2439,33 +2573,36 @@ a.die.selected img {
 
 /* Animation for pulsing glow effect */
 @keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 10px var(--terminal-primary), 
-                0 0 20px var(--terminal-primary), 
-                0 0 30px var(--terminal-primary);
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px var(--terminal-primary),
+      0 0 20px var(--terminal-primary),
+      0 0 30px var(--terminal-primary);
   }
+
   50% {
-    box-shadow: 0 0 15px var(--terminal-primary), 
-                0 0 30px var(--terminal-primary), 
-                0 0 45px var(--terminal-primary);
+    box-shadow: 0 0 15px var(--terminal-primary),
+      0 0 30px var(--terminal-primary),
+      0 0 45px var(--terminal-primary);
   }
 }
 
 /* Specific for failed dice */
 .wrath-and-glory.roll .die.failed.selected,
 a.die.failed.selected {
-  box-shadow: 0 0 10px var(--terminal-error), 
-              0 0 20px var(--terminal-error), 
-              0 0 30px var(--terminal-error) !important;
+  box-shadow: 0 0 10px var(--terminal-error),
+    0 0 20px var(--terminal-error),
+    0 0 30px var(--terminal-error) !important;
   border-color: var(--terminal-error) !important;
 }
 
 /* Specific for success dice */
 .wrath-and-glory.roll .die.success.selected,
 a.die.success.selected {
-  box-shadow: 0 0 10px var(--terminal-warning), 
-              0 0 20px var(--terminal-warning), 
-              0 0 30px var(--terminal-warning) !important;
+  box-shadow: 0 0 10px var(--terminal-warning),
+    0 0 20px var(--terminal-warning),
+    0 0 30px var(--terminal-warning) !important;
   border-color: var(--terminal-warning) !important;
 }
 
@@ -2511,3 +2648,1033 @@ aside#scene-controls menu button[aria-pressed="true"] {
   color: var(--terminal-bg) !important;
 }
 
+/* === TABLE DESCRIPTION FIX === */
+.table-description,
+div.table-description {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  font-family: var(--terminal-font) !important;
+}
+
+.table-description p,
+div.table-description p {
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+  font-weight: bold !important;
+}
+
+/* === INLINE ROLL FIX === */
+a.inline-roll,
+a.inline-roll.roll {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 2px 6px !important;
+  text-decoration: none !important;
+}
+
+a.inline-roll:hover,
+a.inline-roll.roll:hover {
+  color: var(--terminal-warning) !important;
+  border-color: var(--terminal-warning) !important;
+  box-shadow: 0 0 5px var(--terminal-warning) !important;
+  cursor: pointer !important;
+}
+
+/* Icono dentro del inline-roll */
+a.inline-roll i,
+a.inline-roll.roll i {
+  color: var(--terminal-primary) !important;
+  margin-right: 4px !important;
+}
+
+a.inline-roll:hover i,
+a.inline-roll.roll:hover i {
+  color: var(--terminal-warning) !important;
+}
+
+/* === SMALL CLASS FIX === */
+.small,
+div.small {
+  background-color: transparent !important;
+  font-family: var(--terminal-font) !important;
+  font-size: calc(var(--terminal-font-size) - 2px) !important;
+}
+
+.small input,
+div.small input,
+.small input[type="number"],
+div.small input[type="number"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: calc(var(--terminal-font-size) - 2px) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 2px 4px !important;
+}
+
+.small input:focus,
+div.small input:focus {
+  border-color: var(--terminal-primary) !important;
+  box-shadow: 0 0 3px var(--terminal-primary) !important;
+  outline: none !important;
+}
+
+/* Labels dentro de .small */
+.small label,
+div.small label {
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: calc(var(--terminal-font-size) - 2px) !important;
+}
+
+/* === BAR FIX === */
+.bar,
+div.bar {
+  background-color: var(--terminal-primary) !important;
+  background: var(--terminal-primary) !important;
+  background-image: none !important;
+  height: 100% !important;
+  transition: width 0.3s ease !important;
+}
+
+/* Estados diferentes de la barra */
+.bar.state1,
+div.bar.state1 {
+  background-color: var(--terminal-primary) !important;
+  background: var(--terminal-primary) !important;
+}
+
+.bar.state2,
+div.bar.state2 {
+  background-color: var(--terminal-warning) !important;
+  background: var(--terminal-warning) !important;
+}
+
+.bar.state3,
+div.bar.state3 {
+  background-color: var(--terminal-error) !important;
+  background: var(--terminal-error) !important;
+}
+
+/* Barra vacía o contenedor */
+.bar-container,
+div.bar-container {
+  background-color: var(--terminal-bg) !important;
+  border: 1px solid var(--terminal-border) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* === THRESHOLD TRIANGLE FIX - MEGA GRANDE === */
+.threshold,
+div.threshold {
+  position: absolute !important;
+  top: -25px !important;
+  width: 0 !important;
+  height: 0 !important;
+  z-index: 100 !important;
+  border-left: 25px solid transparent !important;
+  border-right: 25px solid transparent !important;
+  border-top: 38px solid var(--terminal-error) !important;
+  background: none !important;
+  background-color: transparent !important;
+  filter: none !important;
+  pointer-events: none !important;
+}
+
+/* Con glow épico opcional */
+.threshold.glow {
+  filter: drop-shadow(0 0 5px var(--terminal-error)) drop-shadow(0 0 10px var(--terminal-error)) !important;
+}
+
+/* === STANDARD FORM FIX === */
+.standard-form,
+section.standard-form,
+.window-content.standard-form {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  font-family: var(--terminal-font) !important;
+}
+
+/* Todos los elementos dentro de standard-form */
+.standard-form *:not(i):not(.fa):not(.fas):not(.far):not(.fab):not([class*="fa-"]):not([class^="fa-"]),
+section.standard-form *:not(i):not(.fa):not(.fas):not(.far):not(.fab):not([class*="fa-"]):not([class^="fa-"]),
+.window-content.standard-form *:not(i):not(.fa):not(.fas):not(.far):not(.fab):not([class*="fa-"]):not([class^="fa-"]) {
+  font-family: var(--terminal-font) !important;
+}
+
+/* Headers dentro de standard-form */
+.standard-form h2,
+.standard-form .sheet-divider {
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+  border-bottom: 1px solid var(--terminal-border) !important;
+}
+
+
+/* === FIX PARA INPUTS ESPECÍFICOS - COLOR PRIMARIO === */
+
+/* Input dentro de .header-fields > .attribute-box */
+.header-fields .attribute-box input[type="text"],
+.header-fields .attribute-box input[name="name"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 6px !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+/* Input con clase .title */
+input.title[type="text"],
+input.title[name="name"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 6px !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+/* Inputs dentro de .components (atributos del sistema) */
+.components input[type="number"],
+.components input[name^="system.attributes"],
+.components>div input[type="number"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 6px !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+/* Input .total (el que está deshabilitado) */
+.components input.total,
+input.total[type="number"][disabled],
+input.total[type="number"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  font-weight: bold !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+  opacity: 1 !important;
+}
+
+/* Focus */
+.header-fields .attribute-box input:focus,
+input.title:focus,
+.components input[type="number"]:focus {
+  border-color: var(--terminal-primary) !important;
+  box-shadow: 0 0 5px var(--terminal-primary) !important;
+  outline: none !important;
+}
+
+/* Placeholders */
+.header-fields .attribute-box input::placeholder,
+input.title::placeholder,
+.components input::placeholder {
+  color: var(--terminal-dim) !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: var(--terminal-dim) !important;
+}
+
+/* Input dentro de .form-fields */
+.form-fields input[type="number"],
+.form-fields input[name="difficulty"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 6px !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+.form-fields input[type="number"]:focus {
+  border-color: var(--terminal-primary) !important;
+  box-shadow: 0 0 5px var(--terminal-primary) !important;
+  outline: none !important;
+}
+
+/* Fix para entry-name hover - mantener colores terminal */
+a.entry-name.ellipsis,
+a.entry-name.ellipsis[data-action="activateEntry"] {
+  background-color: transparent !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+a.entry-name.ellipsis:hover,
+a.entry-name.ellipsis[data-action="activateEntry"]:hover {
+  background-color: transparent !important;
+  color: var(--terminal-warning) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+}
+
+/* Input text dentro de .form-fields */
+.form-fields input[type="text"],
+.form-fields input[name="system.requirements"],
+.form-fields input[name="name"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 6px !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+/* Checkbox dentro de .form-fields */
+.form-fields input[type="checkbox"],
+.form-fields input[name="system.display"],
+.form-fields input[name="disabled"] {
+  background-color: var(--terminal-bg) !important;
+  border: 1px solid var(--terminal-border) !important;
+  accent-color: var(--terminal-primary) !important;
+}
+
+/* Input dentro de sheet-header img-name */
+header.sheet-header.img-name input[type="text"],
+header.sheet-header.img-name input[name="name"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 6px !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+/* Directory item hover - FIX COMPLETO */
+li.directory-item.entry,
+li.directory-item.entry.document {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+li.directory-item.entry:hover,
+li.directory-item.entry.document:hover {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+/* Entry-name dentro de directory-item - FIX HOVER GRIS */
+li.directory-item a.entry-name,
+li.directory-item a.entry-name.ellipsis {
+  background-color: transparent !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+li.directory-item:hover a.entry-name,
+li.directory-item:hover a.entry-name.ellipsis,
+li.directory-item a.entry-name:hover,
+li.directory-item a.entry-name.ellipsis:hover {
+  background-color: transparent !important;
+  color: var(--terminal-warning) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+}
+
+/* Checkbox ultra específico - FONDO NEGRO SIEMPRE */
+.form-fields input[type="checkbox"],
+.form-fields input[type="checkbox"][name="disabled"],
+.form-fields input[type="checkbox"][id*="ActiveEffect"],
+input[type="checkbox"][name="disabled"],
+input[type="checkbox"][id*="WrathAndGloryActiveEffectConfig"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  border: 2px solid var(--terminal-border) !important;
+  accent-color: var(--terminal-primary) !important;
+  filter: none !important;
+}
+
+/* Checked state - FONDO NEGRO con marca verde */
+.form-fields input[type="checkbox"]:checked,
+input[type="checkbox"][name="disabled"]:checked,
+input[type="checkbox"][name="disabled"][checked] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  border: 2px solid var(--terminal-primary) !important;
+  accent-color: var(--terminal-primary) !important;
+  filter: brightness(1) !important;
+}
+
+/* Hover state */
+.form-fields input[type="checkbox"]:hover,
+input[type="checkbox"][name="disabled"]:hover {
+  border-color: var(--terminal-primary) !important;
+  box-shadow: 0 0 3px var(--terminal-primary) !important;
+}
+
+/* OL scrollable con data-changes */
+ol.scrollable[data-changes],
+ol.scrollable {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+/* LI items dentro del scrollable */
+ol.scrollable li,
+ol.scrollable[data-changes] li {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  border-bottom: 1px solid var(--terminal-border) !important;
+}
+
+/* Divs internos: key, mode, value, priority, controls */
+ol.scrollable li div.key,
+ol.scrollable li div.mode,
+ol.scrollable li div.value,
+ol.scrollable li div.priority,
+ol.scrollable li div.controls {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+/* Select dentro de key y mode */
+ol.scrollable li div.key select,
+ol.scrollable li div.mode select,
+select[name*="changes"][name*=".key"],
+select[name*="changes"][name*=".mode"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+}
+
+/* Optgroup y options dentro de los selects */
+ol.scrollable select optgroup,
+ol.scrollable select option {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+/* Input text dentro de value */
+ol.scrollable li div.value input[type="text"],
+input[name*="changes"][name*=".value"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 6px !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+/* Input number dentro de priority */
+ol.scrollable li div.priority input[type="number"],
+input[name*="changes"][name*=".priority"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 6px !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+/* Placeholder para inputs */
+ol.scrollable input::placeholder {
+  color: var(--terminal-dim) !important;
+  opacity: 1 !important;
+}
+
+/* Button delete dentro de controls */
+ol.scrollable li div.controls button,
+button[data-action="deleteChange"] {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-error) !important;
+  border: 1px solid var(--terminal-border) !important;
+}
+
+ol.scrollable li div.controls button:hover,
+button[data-action="deleteChange"]:hover {
+  color: var(--terminal-error) !important;
+  box-shadow: 0 0 5px var(--terminal-error) !important;
+}
+
+/* UL modifier-list */
+ul.modifier-list {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+/* LI modifier items */
+ul.modifier-list li.modifier,
+li[data-action="clickModifier"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  padding: 4px 8px !important;
+  border-bottom: 1px solid var(--terminal-border) !important;
+  cursor: pointer !important;
+}
+
+/* Modifier active state */
+ul.modifier-list li.modifier.active,
+li[data-action="clickModifier"].active {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border-left: 3px solid var(--terminal-primary) !important;
+}
+
+/* Enlaces dentro de modifier */
+ul.modifier-list li.modifier a,
+li[data-action="clickModifier"] a {
+  background-color: transparent !important;
+  color: inherit !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  text-decoration: none !important;
+}
+
+/* Hover state */
+ul.modifier-list li.modifier:hover,
+li[data-action="clickModifier"]:hover {
+  background-color: var(--terminal-secondary) !important;
+  color: var(--terminal-warning) !important;
+  border-left: 3px solid var(--terminal-warning) !important;
+}
+
+ul.modifier-list li.modifier:hover a,
+li[data-action="clickModifier"]:hover a {
+  color: var(--terminal-warning) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+}
+
+/* Footer form-footer */
+footer.form-footer,
+footer[data-application-part="footer"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  border-top: 1px solid var(--terminal-border) !important;
+  padding: 10px !important;
+}
+
+/* Botón dentro del footer */
+footer.form-footer button,
+footer[data-application-part="footer"] button,
+footer.form-footer button[type="submit"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  padding: 8px 16px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Span dentro del botón */
+footer.form-footer button span,
+footer[data-application-part="footer"] button span {
+  background-color: transparent !important;
+  color: inherit !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+/* Hover state - TEXTO OSCURO CON GLOW */
+footer.form-footer button:hover,
+footer[data-application-part="footer"] button:hover,
+footer.form-footer button[type="submit"]:hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-color: var(--terminal-primary) !important;
+}
+
+footer.form-footer button:hover span,
+footer[data-application-part="footer"] button:hover span {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
+}
+
+/* Attribute group */
+.attribute-group {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+/* Label rollable dentro de attribute-group */
+.attribute-group label,
+.attribute-group label[data-action="rollTest"] {
+  background-color: transparent !important;
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  padding: 4px 8px !important;
+  display: inline-block !important;
+}
+
+/* Hover state - MISMO EFECTO QUE EL BOTÓN */
+.attribute-group label:hover,
+.attribute-group label[data-action="rollTest"]:hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  text-shadow: none !important;
+  border-radius: 2px !important;
+}
+
+/* Components ya están definidos arriba, pero para asegurar */
+.attribute-group .components {
+  background-color: transparent !important;
+}
+
+.attribute-group .components input[type="number"] {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+.attribute-group .components input.total {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-weight: bold !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+/* Dialog item */
+li.dialog-item,
+li[data-action="clickItem"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  padding: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border-bottom: 1px solid var(--terminal-border) !important;
+}
+
+/* Hover state - MISMO EFECTO QUE EL BOTÓN */
+li.dialog-item:hover,
+li[data-action="clickItem"]:hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+}
+
+/* Selected/Active state - QUEDA MARCADO AL HACER CLICK */
+li.dialog-item.selected,
+li.dialog-item.active,
+li.dialog-item[aria-selected="true"],
+li[data-action="clickItem"].selected,
+li[data-action="clickItem"].active,
+li[data-action="clickItem"][aria-selected="true"] {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-left: 4px solid var(--terminal-warning) !important;
+}
+
+/* Label y link dentro del dialog-item */
+li.dialog-item label,
+li[data-action="clickItem"] label {
+  background-color: transparent !important;
+  color: inherit !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  cursor: pointer !important;
+}
+
+li.dialog-item label a,
+li[data-action="clickItem"] label a {
+  background-color: transparent !important;
+  color: inherit !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  text-decoration: none !important;
+}
+
+/* Hover y Selected sobre label y link - heredan el color oscuro */
+li.dialog-item:hover label,
+li.dialog-item:hover label a,
+li.dialog-item.selected label,
+li.dialog-item.selected label a,
+li.dialog-item.active label,
+li.dialog-item.active label a,
+li[data-action="clickItem"]:hover label,
+li[data-action="clickItem"]:hover label a,
+li[data-action="clickItem"].selected label,
+li[data-action="clickItem"].selected label a {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
+}
+
+/* Thumbnail (imagen) dentro del dialog-item */
+li.dialog-item img.thumbnail,
+li[data-action="clickItem"] img.thumbnail {
+  background-color: transparent !important;
+  border: 1px solid var(--terminal-border) !important;
+}
+
+li.dialog-item:hover img.thumbnail,
+li.dialog-item.selected img.thumbnail,
+li[data-action="clickItem"]:hover img.thumbnail,
+li[data-action="clickItem"].selected img.thumbnail {
+  border-color: var(--terminal-bg) !important;
+}
+
+
+/* Input dentro de div.flex.large */
+div.flex.large input[type="text"],
+.flex.large input[type="text"],
+input[name*="system.influence.factions"],
+input[name*=".notes"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 6px !important;
+  -webkit-text-fill-color: var(--terminal-primary) !important;
+}
+
+/* Focus state */
+div.flex.large input[type="text"]:focus,
+.flex.large input[type="text"]:focus {
+  border-color: var(--terminal-primary) !important;
+  box-shadow: 0 0 5px var(--terminal-primary) !important;
+  outline: none !important;
+}
+
+/* Placeholder */
+div.flex.large input[type="text"]::placeholder,
+.flex.large input[type="text"]::placeholder {
+  color: var(--terminal-dim) !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: var(--terminal-dim) !important;
+}
+
+/* Botones tab con mismo estilo que submit */
+button[data-action="tab"],
+button[data-group="categories"],
+button.plain[type="button"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  padding: 8px 16px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+}
+
+/* Spans dentro del botón */
+button[data-action="tab"] span,
+button[data-group="categories"] span,
+button.plain[type="button"] span {
+  background-color: transparent !important;
+  color: inherit !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+/* Count span */
+button[data-action="tab"] span.count,
+button[data-group="categories"] span.count {
+  color: var(--terminal-secondary) !important;
+  font-size: calc(var(--terminal-font-size) - 2px) !important;
+  margin-left: 4px !important;
+}
+
+/* Hover state - TEXTO OSCURO CON GLOW */
+button[data-action="tab"]:hover,
+button[data-group="categories"]:hover,
+button.plain[type="button"]:hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-color: var(--terminal-primary) !important;
+}
+
+button[data-action="tab"]:hover span,
+button[data-group="categories"]:hover span,
+button.plain[type="button"]:hover span {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
+}
+
+button[data-action="tab"]:hover span.count,
+button[data-group="categories"]:hover span.count {
+  color: var(--terminal-bg) !important;
+  opacity: 0.8 !important;
+}
+
+/* Dialog menu */
+dialog#menu,
+dialog.themed,
+dialog.theme-dark {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  border: 2px solid var(--terminal-border) !important;
+  box-shadow: var(--terminal-glow) !important;
+}
+
+/* Menu items container */
+menu#main-menu-items,
+menu[data-application-part="items"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Menu item individual */
+li.menu-item,
+li.menu-item.flexrow,
+li[data-action="menuItem"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  padding: 12px 16px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border-bottom: 1px solid var(--terminal-border) !important;
+}
+
+/* H2 dentro de menu-item */
+li.menu-item h2,
+li[data-action="menuItem"] h2 {
+  background-color: transparent !important;
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-weight: normal !important;
+}
+
+/* Iconos dentro de menu-item */
+li.menu-item i,
+li[data-action="menuItem"] i {
+  color: var(--terminal-primary) !important;
+  margin-right: 12px !important;
+}
+
+/* Hover state - MISMO EFECTO QUE BOTÓN */
+li.menu-item:hover,
+li[data-action="menuItem"]:hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: inset var(--terminal-glow) !important;
+}
+
+li.menu-item:hover h2,
+li[data-action="menuItem"]:hover h2 {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
+}
+
+li.menu-item:hover i,
+li[data-action="menuItem"]:hover i {
+  color: var(--terminal-bg) !important;
+}
+
+/* === BOTONES DENTRO DEL CHAT - EXCLUYENDO UI CONTROLS === */
+#chat button[data-action]:not(.ui-control),
+#chat button[type="button"]:not(.ui-control),
+#chat-log button[data-action]:not(.ui-control),
+#chat-log button[type="button"]:not(.ui-control),
+.chat-message button[data-action]:not(.ui-control),
+.chat-message button[type="button"]:not(.ui-control),
+.wrath-and-glory.roll button[data-action]:not(.ui-control),
+.wrath-and-glory.roll button[type="button"]:not(.ui-control) {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+  transition: all 0.3s ease !important;
+  padding: 6px 12px !important;
+  height: auto !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#chat button[data-action]:not(.ui-control):hover,
+#chat button[type="button"]:not(.ui-control):hover,
+#chat-log button[data-action]:not(.ui-control):hover,
+#chat-log button[type="button"]:not(.ui-control):hover,
+.chat-message button[data-action]:not(.ui-control):hover,
+.chat-message button[type="button"]:not(.ui-control):hover,
+.wrath-and-glory.roll button[data-action]:not(.ui-control):hover,
+.wrath-and-glory.roll button[type="button"]:not(.ui-control):hover {
+  background-color: var(--terminal-primary) !important;
+  background: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border: 1px solid var(--terminal-primary) !important;
+  border-color: var(--terminal-primary) !important;
+}
+
+/* === DICE TRAY BUTTONS - SOLO AD Y ROLL === */
+
+/* Botones advantage/disadvantage (KH/KL) */
+section.dice-tray button.dice-tray__ad,
+.dice-tray button.dice-tray__ad,
+#chat section.dice-tray button.dice-tray__ad {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 8px !important;
+  font-family: var(--terminal-font) !important;
+  font-size: calc(var(--terminal-font-size) - 2px) !important;
+  transition: all 0.3s ease !important;
+}
+
+section.dice-tray button.dice-tray__ad:hover,
+.dice-tray button.dice-tray__ad:hover,
+#chat section.dice-tray button.dice-tray__ad:hover {
+  background-color: var(--terminal-primary) !important;
+  background: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-color: var(--terminal-primary) !important;
+}
+
+/* Botón Roll */
+section.dice-tray button.dice-tray__roll,
+.dice-tray button.dice-tray__roll,
+#chat section.dice-tray button.dice-tray__roll {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 8px 16px !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+  transition: all 0.3s ease !important;
+}
+
+section.dice-tray button.dice-tray__roll:hover,
+.dice-tray button.dice-tray__roll:hover,
+#chat section.dice-tray button.dice-tray__roll:hover {
+  background-color: var(--terminal-primary) !important;
+  background: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-color: var(--terminal-primary) !important;
+}
+/* === UI CONTROL BUTTONS - ROLL MODE === */
+#roll-privacy button.ui-control,
+#chat-controls button.ui-control {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  font-family: var(--terminal-font) !important;
+  transition: all 0.3s ease !important;
+  padding: 6px 12px !important;
+}
+
+/* Hover */
+#roll-privacy button.ui-control:hover,
+#chat-controls button.ui-control:hover {
+  background-color: var(--terminal-secondary) !important;
+  box-shadow: 0 0 5px var(--terminal-primary) !important;
+  border-color: var(--terminal-primary) !important;
+}
+
+/* Estado seleccionado (pressed) */
+#roll-privacy button.ui-control[aria-pressed="true"],
+#chat-controls button.ui-control[aria-pressed="true"] {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-color: var(--terminal-primary) !important;
+  font-weight: bold !important;
+}
+
+/* Hover sobre el seleccionado */
+#roll-privacy button.ui-control[aria-pressed="true"]:hover,
+#chat-controls button.ui-control[aria-pressed="true"]:hover {
+  background-color: var(--terminal-warning) !important;
+  border-color: var(--terminal-warning) !important;
+  box-shadow: 0 0 2px var(--terminal-warning), 0 0 4px var(--terminal-warning), 0 0 6px var(--terminal-warning) !important;
+}
