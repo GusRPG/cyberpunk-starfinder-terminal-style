@@ -79,7 +79,7 @@ class CyberpunkTerminalEffects {
                 'warpaint-red': 'Warpaint Red 🩸',
                 'yellow-phosphor': 'Phosphor Yellow 🟡'
             },
-            default: 'custom',
+            default: 'classic-green',
             onChange: this.applyColorPreset.bind(this)
         });
 
@@ -839,7 +839,7 @@ class CyberpunkTerminalEffects {
                     fontFamily: 'mono',
                     glowIntensity: 10,
                     animationSpeed: 150,
-                    colorPreset: 'custom'
+                    colorPreset: 'classic-green'
                 };
 
                 // Apply default values
