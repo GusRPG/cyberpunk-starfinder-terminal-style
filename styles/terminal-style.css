@@ -3165,14 +3165,16 @@ li[data-action="clickModifier"] {
   padding: 4px 8px !important;
   border-bottom: 1px solid var(--terminal-border) !important;
   cursor: pointer !important;
+  transition: all 0.3s ease !important;
 }
 
-/* Modifier active state */
+/* Modifier active state - MISMO ESTILO QUE BOTÓN SELECCIONADO */
 ul.modifier-list li.modifier.active,
 li[data-action="clickModifier"].active {
-  background-color: var(--terminal-bg) !important;
-  color: var(--terminal-primary) !important;
-  border-left: 3px solid var(--terminal-primary) !important;
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  border-left: 3px solid var(--terminal-warning) !important;
+  box-shadow: var(--terminal-glow) !important;
 }
 
 /* Enlaces dentro de modifier */
@@ -3185,18 +3187,34 @@ li[data-action="clickModifier"] a {
   text-decoration: none !important;
 }
 
-/* Hover state */
+/* Hover state - TEXTO OSCURO */
 ul.modifier-list li.modifier:hover,
 li[data-action="clickModifier"]:hover {
-  background-color: var(--terminal-secondary) !important;
-  color: var(--terminal-warning) !important;
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
   border-left: 3px solid var(--terminal-warning) !important;
+  box-shadow: var(--terminal-glow) !important;
 }
 
 ul.modifier-list li.modifier:hover a,
 li[data-action="clickModifier"]:hover a {
-  color: var(--terminal-warning) !important;
-  text-shadow: var(--terminal-text-shadow) !important;
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
+}
+
+/* Active hover - AMARILLO CON TEXTO OSCURO */
+ul.modifier-list li.modifier.active:hover,
+li[data-action="clickModifier"].active:hover {
+  background-color: var(--terminal-warning) !important;
+  border-left: 3px solid var(--terminal-warning) !important;
+  box-shadow: 0 0 2px var(--terminal-warning), 0 0 4px var(--terminal-warning), 0 0 6px var(--terminal-warning) !important;
+  color: var(--terminal-bg) !important;
+}
+
+ul.modifier-list li.modifier.active:hover a,
+li[data-action="clickModifier"].active:hover a {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
 }
 
 /* Footer form-footer */
