@@ -7,7 +7,8 @@
 
 # 💾 BURN YOUR EYES
 ## Classic Retro Terminal Style  
-### for **Cyberpunk 2020 / Starfinder 1st Edition 
+### for 
+### Cyberpunk 2020 / Starfinder 1st Edition 
 ### WH40k Imperium Maledictum / Wrath & Glory
 
 > **Burn your eyes with a classic retro terminal style!**  
