@@ -2376,3 +2376,95 @@ a[data-action="editEmbedded"]:hover {
 .context-menu-alt {
   background-color: var(--terminal-bg) !important;
 }
+
+/* === CONTEXT MENU FIX === */
+menu,
+menu.context-items {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  font-family: var(--terminal-font) !important;
+}
+
+menu li,
+li.context-item {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+menu li:hover,
+li.context-item:hover {
+  background-color: var(--terminal-secondary) !important;
+  color: var(--terminal-primary) !important;
+}
+
+menu li span,
+li.context-item span {
+  color: var(--terminal-text) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+menu li:hover span,
+li.context-item:hover span {
+  color: var(--terminal-primary) !important;
+}
+
+menu li i,
+li.context-item i {
+  color: var(--terminal-primary) !important;
+}
+
+menu li:hover i,
+li.context-item:hover i {
+  color: var(--terminal-warning) !important;
+}
+
+/* === GLOW EFFECT FOR SELECTED DICE === */
+.wrath-and-glory.roll .die.selected,
+a.die.selected {
+  box-shadow: 0 0 10px var(--terminal-primary), 
+              0 0 20px var(--terminal-primary), 
+              0 0 30px var(--terminal-primary) !important;
+  border: 2px solid var(--terminal-primary) !important;
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+.wrath-and-glory.roll .die.selected img,
+a.die.selected img {
+  filter: brightness(1.3) drop-shadow(0 0 5px var(--terminal-primary));
+}
+
+/* Animation for pulsing glow effect */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--terminal-primary), 
+                0 0 20px var(--terminal-primary), 
+                0 0 30px var(--terminal-primary);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--terminal-primary), 
+                0 0 30px var(--terminal-primary), 
+                0 0 45px var(--terminal-primary);
+  }
+}
+
+/* Specific for failed dice */
+.wrath-and-glory.roll .die.failed.selected,
+a.die.failed.selected {
+  box-shadow: 0 0 10px var(--terminal-error), 
+              0 0 20px var(--terminal-error), 
+              0 0 30px var(--terminal-error) !important;
+  border-color: var(--terminal-error) !important;
+}
+
+/* Specific for success dice */
+.wrath-and-glory.roll .die.success.selected,
+a.die.success.selected {
+  box-shadow: 0 0 10px var(--terminal-warning), 
+              0 0 20px var(--terminal-warning), 
+              0 0 30px var(--terminal-warning) !important;
+  border-color: var(--terminal-warning) !important;
+}
