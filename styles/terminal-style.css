@@ -2979,37 +2979,59 @@ header.sheet-header.img-name input[name="name"] {
   -webkit-text-fill-color: var(--terminal-primary) !important;
 }
 
-/* Directory item hover - FIX COMPLETO */
-li.directory-item.entry,
-li.directory-item.entry.document {
-  background-color: var(--terminal-bg) !important;
-  background: var(--terminal-bg) !important;
-  background-image: none !important;
+/* === DIRECTORY ITEMS - HOVER INDIVIDUAL === */
+/* Solo items que NO son carpetas */
+li.directory-item:not(.folder):hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-color: var(--terminal-primary) !important;
 }
 
-li.directory-item.entry:hover,
-li.directory-item.entry.document:hover {
-  background-color: var(--terminal-bg) !important;
-  background: var(--terminal-bg) !important;
-  background-image: none !important;
+/* El enlace dentro del item también debe cambiar de color */
+li.directory-item:not(.folder):hover a.entry-name,
+li.directory-item:not(.folder):hover .entry-name {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
 }
 
-/* Entry-name dentro de directory-item - FIX HOVER GRIS */
-li.directory-item a.entry-name,
-li.directory-item a.entry-name.ellipsis {
-  background-color: transparent !important;
+/* Header de folder en hover - SOLO cuando haces hover en el header */
+li.directory-item.folder > header.folder-header:hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+}
+
+li.directory-item.folder > header.folder-header:hover h3,
+li.directory-item.folder > header.folder-header:hover .folder-name {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
+}
+
+/* Evitar que el hover de la carpeta afecte a los items dentro */
+li.directory-item.folder:hover > ol.subdirectory {
+  background-color: var(--terminal-bg) !important;
+}
+
+li.directory-item.folder:hover > ol.subdirectory > li.directory-item {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-text) !important;
+}
+
+li.directory-item.folder:hover > ol.subdirectory > li.directory-item > a.entry-name {
   color: var(--terminal-primary) !important;
-  font-family: var(--terminal-font) !important;
-  font-size: var(--terminal-font-size) !important;
 }
 
-li.directory-item:hover a.entry-name,
-li.directory-item:hover a.entry-name.ellipsis,
-li.directory-item a.entry-name:hover,
-li.directory-item a.entry-name.ellipsis:hover {
-  background-color: transparent !important;
-  color: var(--terminal-warning) !important;
-  text-shadow: var(--terminal-text-shadow) !important;
+/* Asegurar que los items dentro de carpetas funcionen correctamente */
+li.directory-item.folder ol.subdirectory > li.directory-item:not(.folder):hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-color: var(--terminal-primary) !important;
+}
+
+li.directory-item.folder ol.subdirectory > li.directory-item:not(.folder):hover a.entry-name {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
 }
 
 /* Checkbox ultra específico - FONDO NEGRO SIEMPRE */
@@ -3695,4 +3717,71 @@ section.dice-tray button.dice-tray__roll:hover,
   background-color: var(--terminal-warning) !important;
   border-color: var(--terminal-warning) !important;
   box-shadow: 0 0 2px var(--terminal-warning), 0 0 4px var(--terminal-warning), 0 0 6px var(--terminal-warning) !important;
+}
+
+/* === BOTONES CREATE-ENTRY Y CREATE-FOLDER === */
+button.create-entry,
+button.create-folder,
+button[data-action="createEntry"],
+button[data-action="createFolder"] {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+  transition: all 0.3s ease !important;
+  padding: 8px 16px !important;
+  cursor: pointer !important;
+}
+
+/* Spans dentro de los botones */
+button.create-entry span,
+button.create-folder span,
+button[data-action="createEntry"] span,
+button[data-action="createFolder"] span {
+  background-color: transparent !important;
+  color: inherit !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+/* Iconos dentro de los botones */
+button.create-entry i,
+button.create-folder i,
+button[data-action="createEntry"] i,
+button[data-action="createFolder"] i {
+  color: inherit !important;
+  margin-right: 8px !important;
+}
+
+/* Hover state - TEXTO OSCURO CON GLOW */
+button.create-entry:hover,
+button.create-folder:hover,
+button[data-action="createEntry"]:hover,
+button[data-action="createFolder"]:hover {
+  background-color: var(--terminal-primary) !important;
+  background: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-color: var(--terminal-primary) !important;
+}
+
+/* Span en hover - heredar el color oscuro */
+button.create-entry:hover span,
+button.create-folder:hover span,
+button[data-action="createEntry"]:hover span,
+button[data-action="createFolder"]:hover span {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
+}
+
+/* Icono en hover - heredar el color oscuro */
+button.create-entry:hover i,
+button.create-folder:hover i,
+button[data-action="createEntry"]:hover i,
+button[data-action="createFolder"]:hover i {
+  color: var(--terminal-bg) !important;
+  text-shadow: none !important;
 }

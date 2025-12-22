@@ -5,6 +5,7 @@
 class CyberpunkTerminalEffects {
     static MODULE_ID = 'cyberpunk-starfinder-terminal-style';
     static MODULE_TITLE = 'Cyberpunk Starfinder Terminal Style';
+    static isApplyingPreset = false; // Flag para evitar updates durante preset application
 
     static init() {
         console.log(`${this.MODULE_TITLE} | Initializing terminal effects`);
@@ -79,7 +80,7 @@ class CyberpunkTerminalEffects {
                 'warpaint-red': 'Warpaint Red 🩸',
                 'yellow-phosphor': 'Phosphor Yellow 🟡'
             },
-            default: 'classic-green',
+            default: 'holo-cyan',
             onChange: this.applyColorPreset.bind(this)
         });
 
@@ -167,6 +168,7 @@ class CyberpunkTerminalEffects {
 
 
         // === CUSTOM COLOR SETTINGS ===
+        // NOTA: Los defaults ahora coinciden con classic-green
 
         // Border color
         game.settings.register(this.MODULE_ID, 'borderColor', {
@@ -175,7 +177,7 @@ class CyberpunkTerminalEffects {
             scope: 'world',
             config: true,
             type: String,
-            default: '#009900',
+            default: '#33ffff',  // ✅ holo-cyan
             onChange: this.updateColors.bind(this)
         });
 
@@ -186,7 +188,7 @@ class CyberpunkTerminalEffects {
             scope: 'world',
             config: true,
             type: String,
-            default: '#008800',
+            default: '#99ffff',  // ✅ holo-cyan
             onChange: this.updateColors.bind(this)
         });
 
@@ -197,7 +199,7 @@ class CyberpunkTerminalEffects {
             scope: 'world',
             config: true,
             type: String,
-            default: '#155315ff',
+            default: '#66b3b3',  // ✅ holo-cyan
             onChange: this.updateColors.bind(this)
         });
 
@@ -208,7 +210,7 @@ class CyberpunkTerminalEffects {
             scope: 'world',
             config: true,
             type: String,
-            default: '#008800',
+            default: '#ccffff',  // ✅ holo-cyan
             onChange: this.updateColors.bind(this)
         });
 
@@ -219,7 +221,7 @@ class CyberpunkTerminalEffects {
             scope: 'world',
             config: true,
             type: String,
-            default: '#008800',
+            default: '#22cccc',  // ✅ holo-cyan
             onChange: this.updateColors.bind(this)
         });
 
@@ -230,7 +232,7 @@ class CyberpunkTerminalEffects {
             scope: 'world',
             config: true,
             type: String,
-            default: '#000000',
+            default: '#001414',  // ✅ holo-cyan
             onChange: this.updateColors.bind(this)
         });
 
@@ -253,6 +255,12 @@ class CyberpunkTerminalEffects {
     }
 
     static updateColors() {
+        // Evitar updates mientras se aplica un preset
+        if (this.isApplyingPreset) {
+            console.log(`${this.MODULE_TITLE} | Skipping updateColors (preset application in progress)`);
+            return;
+        }
+
         const borderColor = game.settings.get(this.MODULE_ID, 'borderColor');
         const consoleLogColor = game.settings.get(this.MODULE_ID, 'consoleLogColor');
         const foundryMenuIconColor = game.settings.get(this.MODULE_ID, 'foundryMenuIconColor');
@@ -707,6 +715,9 @@ class CyberpunkTerminalEffects {
             const colors = presets[preset];
             console.log(`${this.MODULE_TITLE} | Applying colors:`, colors);
 
+            // BLOQUEAR updateColors durante la aplicación
+            this.isApplyingPreset = true;
+
             // Guardar todos los settings SIN disparar updateColors en cada onChange
             await Promise.all([
                 game.settings.set(this.MODULE_ID, 'borderColor', colors.border),
@@ -719,10 +730,11 @@ class CyberpunkTerminalEffects {
 
             console.log(`${this.MODULE_TITLE} | All color settings saved, now applying styles...`);
 
-            // Esperar un momento para que Foundry procese los cambios
-            await new Promise(resolve => setTimeout(resolve, 100));
+            // Esperar un momento para que Foundry persista los cambios
+            await new Promise(resolve => setTimeout(resolve, 150));
 
-            // AHORA aplicar los colores visualmente
+            // DESBLOQUEAR y aplicar los colores visualmente UNA VEZ
+            this.isApplyingPreset = false;
             this.updateColors();
 
             ui.notifications.info(`Color preset "${preset}" applied successfully.`);
@@ -827,19 +839,20 @@ class CyberpunkTerminalEffects {
                 }
             },
             yes: () => {
-                // Default values
+
+               // Default values - AHORA COINCIDEN CON HOLO-CYAN
                 const defaults = {
-                    borderColor: '#009900',
-                    consoleLogColor: '#006600',
-                    foundryMenuIconColor: '#008800',
-                    dimTextColor: '#155315ff',
-                    backgroundColor: '#000000',
-                    mainTextColor: '#008800',
+                    borderColor: '#33ffff',
+                    consoleLogColor: '#22cccc',
+                    foundryMenuIconColor: '#ccffff',
+                    dimTextColor: '#66b3b3',
+                    backgroundColor: '#001414',
+                    mainTextColor: '#99ffff',
                     fontSize: 19,
                     fontFamily: 'mono',
                     glowIntensity: 10,
                     animationSpeed: 150,
-                    colorPreset: 'classic-green'
+                    colorPreset: 'holo-cyan'
                 };
 
                 // Apply default values
