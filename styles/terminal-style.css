@@ -2347,3 +2347,32 @@ h6[data-anchor] {
   color: var(--terminal-primary) !important;
   text-shadow: var(--terminal-text-shadow) !important;
 }
+
+/* === KEYWORD FIX === */
+.keyword,
+div.keyword {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  font-family: var(--terminal-font) !important;
+}
+
+.keyword a,
+div.keyword a,
+a[data-action="editEmbedded"] {
+  background-color: transparent !important;
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+.keyword a:hover,
+a[data-action="editEmbedded"]:hover {
+  color: var(--terminal-warning) !important;
+  text-shadow: var(--terminal-text-shadow) !important;
+}
+
+/* Context menu classes */
+.context-menu-alt {
+  background-color: var(--terminal-bg) !important;
+}
