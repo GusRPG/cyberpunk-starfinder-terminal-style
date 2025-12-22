@@ -95,7 +95,7 @@ All changes apply immediately across chat, windows, and dialogs.
 
 ---
 
-Imperium Maledictum – Notes
+## ⚙️ IMPERIUM MALEDICTUM – NOTES
 For this terminal-style interface to display correctly, disable the Imperium Maledictum style in the module settings so that the backgrounds remain transparent.
 
 ![IM Config 2](https://github.com/user-attachments/assets/c67d1be8-7bbf-4bdd-acc3-f9cdbfca5e59)
