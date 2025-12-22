@@ -2468,3 +2468,46 @@ a.die.success.selected {
               0 0 30px var(--terminal-warning) !important;
   border-color: var(--terminal-warning) !important;
 }
+
+/* === SCENE CONTROLS EXCEPTION - BOTH MENUS === */
+menu#scene-controls-layers,
+menu#scene-controls-tools,
+menu.flexcol[data-application-part="layers"],
+menu.flexcol[data-application-part="tools"],
+aside#scene-controls menu {
+  background-color: transparent !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Asegurar que todos los elementos hijos también sean transparentes */
+menu#scene-controls-layers *:not(button):not(i):not([class*="fa-"]),
+menu#scene-controls-tools *:not(button):not(i):not([class*="fa-"]),
+aside#scene-controls menu *:not(button):not(i):not([class*="fa-"]) {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Los botones individuales pueden mantener su estilo */
+menu#scene-controls-layers button,
+menu#scene-controls-tools button,
+aside#scene-controls menu button {
+  background-color: var(--terminal-bg) !important;
+  border: 1px solid var(--terminal-border) !important;
+}
+
+menu#scene-controls-layers button:hover,
+menu#scene-controls-tools button:hover,
+aside#scene-controls menu button:hover {
+  background-color: var(--terminal-secondary) !important;
+  box-shadow: var(--terminal-glow) !important;
+}
+
+/* Botones activos */
+menu#scene-controls-layers button[aria-pressed="true"],
+menu#scene-controls-tools button[aria-pressed="true"],
+aside#scene-controls menu button[aria-pressed="true"] {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+}
+
