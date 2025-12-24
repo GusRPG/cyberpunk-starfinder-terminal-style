@@ -3785,3 +3785,152 @@ button[data-action="createFolder"]:hover i {
   color: var(--terminal-bg) !important;
   text-shadow: none !important;
 }
+
+/* === FIX PARA QUANTITY CONTROLS === */
+/* Mejor espacio para el número entre los botones +/- */
+
+form.application .quantity {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5em !important; /* Espacio entre elementos */
+  background-color: var(--terminal-bg) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 0.3em !important;
+  border-radius: 2px !important;
+}
+
+/* Número central con más espacio */
+form.application .quantity {
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  font-weight: bold !important;
+  min-width: 3em !important; /* Ancho mínimo para el número */
+  text-align: center !important;
+  padding: 0 0.5em !important; /* Padding horizontal */
+}
+
+/* Botones +/- más compactos */
+form.application .quantity button {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  font-weight: bold !important;
+  padding: 0.3em 0.6em !important; /* Padding más compacto */
+  min-width: 2em !important;
+  min-height: 2em !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+form.application .quantity button:hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+}
+
+/* Alternativa: Si el número está como texto directo (no en span) */
+form.application div.quantity {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5em !important;
+  background-color: var(--terminal-bg) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 0.3em 0.5em !important;
+}
+
+/* Si necesitas más espacio específico para el número */
+form.application .quantity::after,
+form.application .quantity::before {
+  content: none !important; /* Limpiar cualquier pseudo-elemento */
+}
+
+/* === FIX PARA BOTÓN MAG === */
+/* Asegurar que TODO el contenido cambie de color en hover */
+
+form.application button.mag {
+  background-color: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  font-family: var(--terminal-font) !important;
+  transition: all 0.3s ease !important;
+}
+
+form.application button.mag:hover {
+  background-color: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+}
+
+/* Forzar que el label cambie de color */
+form.application button.mag label {
+  color: var(--terminal-primary) !important;
+  font-family: var(--terminal-font) !important;
+  transition: all 0.3s ease !important;
+  pointer-events: none !important; /* No interfiere con el hover del botón */
+}
+
+form.application button.mag:hover label {
+  color: var(--terminal-bg) !important;
+}
+
+/* Forzar que los values cambien de color */
+form.application button.mag .values {
+  color: var(--terminal-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+form.application button.mag:hover .values {
+  color: var(--terminal-bg) !important;
+}
+
+form.application button.mag .values div {
+  color: inherit !important; /* Heredar del padre */
+}
+
+/* Asegurar que TODOS los elementos hijos cambien */
+form.application button.mag:hover * {
+  color: var(--terminal-bg) !important;
+}
+
+/* También aplicar a otros botones similares */
+form.application button:hover label {
+  color: var(--terminal-bg) !important;
+}
+
+form.application button:hover div,
+form.application button:hover span {
+  color: var(--terminal-bg) !important;
+}
+
+/* === BORDES DE FORM - MINIMALISTA ABSOLUTO === */
+form.application {
+  border: 2px solid var(--terminal-border) !important;
+  box-shadow: var(--terminal-glow) !important;
+}
+
+/* === FIX COUNTER INPUTS - SOLO FONT === */
+#counter input[type="number"],
+.counter input[type="number"],
+div.counter input[type="number"],
+.application.wrath-and-glory input[type="number"],
+.application.warhammer input[type="number"] {
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+/* H3 dentro de counter - solo font */
+#counter h3,
+.counter h3 {
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+}
+
+/* Botones +/- - solo font */
+#counter .input-controls a,
+.counter .input-controls a {
+  font-family: var(--terminal-font) !important;
+}

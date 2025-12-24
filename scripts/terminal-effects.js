@@ -137,7 +137,7 @@ class CyberpunkTerminalEffects {
         // Glow intensity setting
         game.settings.register(this.MODULE_ID, 'glowIntensity', {
             name: 'Glow Intensity',
-            hint: 'Controls the intensity of the green glow effect',
+            hint: 'Controls the intensity of the glow effect',
             scope: 'world',
             config: true,
             type: Number,
