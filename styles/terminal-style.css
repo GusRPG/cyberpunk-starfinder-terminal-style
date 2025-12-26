@@ -3934,3 +3934,97 @@ div.counter input[type="number"],
 .counter .input-controls a {
   font-family: var(--terminal-font) !important;
 }
+
+/* === FIX PARA DICE TRAY - TODO PEGADO SIN ESPACIOS === */
+/* Contenedor math buttons - sin gap */
+.dice-tray__math.dice-tray__math__buttons {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0 !important;
+  background-color: var(--terminal-bg) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Contenedor #dice-tray-math - sin espacios */
+#dice-tray-math {
+  background-color: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Contenedor stacked - sin gap */
+.dice-tray__stacked,
+div.dice-tray__stacked {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0 !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Todos los botones y inputs - pegados */
+.dice-tray__math--sub,
+.dice-tray__math--add,
+.dice-tray__input,
+.dice-tray__stacked button.dice-tray__ad,
+button.dice-tray__advantage,
+button.dice-tray__disadvantage,
+.dice-tray__roll {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border: 1px solid var(--terminal-border) !important;
+  padding: 4px 8px !important;
+  font-family: var(--terminal-font) !important;
+  font-size: var(--terminal-font-size) !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+/* Input específico */
+.dice-tray__input {
+  min-width: 60px !important;
+  text-align: center !important;
+}
+
+/* Botones KH/KL más pequeños */
+.dice-tray__stacked button.dice-tray__ad,
+button.dice-tray__advantage,
+button.dice-tray__disadvantage {
+  font-size: calc(var(--terminal-font-size) - 2px) !important;
+}
+
+/* Eliminar bordes duplicados - todos los elementos contiguos */
+.dice-tray__math--sub + .dice-tray__input,
+.dice-tray__input + .dice-tray__math--add,
+.dice-tray__math--add + #dice-tray-math,
+#dice-tray-math + .dice-tray__roll,
+.dice-tray__stacked button.dice-tray__ad + button.dice-tray__ad {
+  border-left-width: 0 !important;
+}
+
+/* Hover con z-index para mostrar borde completo */
+.dice-tray__math--sub:hover,
+.dice-tray__math--add:hover,
+.dice-tray__input:hover,
+.dice-tray__stacked button.dice-tray__ad:hover,
+button.dice-tray__advantage:hover,
+button.dice-tray__disadvantage:hover,
+.dice-tray__roll:hover {
+  background-color: var(--terminal-primary) !important;
+  background: var(--terminal-primary) !important;
+  color: var(--terminal-bg) !important;
+  box-shadow: var(--terminal-glow) !important;
+  border-color: var(--terminal-primary) !important;
+  position: relative !important;
+  z-index: 1 !important;
+  border-left-width: 1px !important;
+}
