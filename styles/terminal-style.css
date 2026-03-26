@@ -63,7 +63,6 @@ i,
 .fal:before,
 .fad:before {
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro", "Font Awesome 5 Brands", "FontAwesome" !important;
-  font-weight: 900 !important;
   /* Font Awesome needs specific font-weight */
   font-style: normal !important;
   font-variant: normal !important;
@@ -4028,3 +4027,8 @@ button.dice-tray__disadvantage:hover,
   z-index: 1 !important;
   border-left-width: 1px !important;
 }
+
+/* === FONT AWESOME WEIGHT FIX === */
+i.fa-solid, .fas { font-weight: 900 !important; }
+i.fa-regular, .far { font-weight: 400 !important; }
+i.fa-brands, .fab { font-weight: 400 !important; }
