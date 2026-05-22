@@ -4125,3 +4125,147 @@ i.fa-brands, .fab { font-weight: 400 !important; }
   visibility: visible !important;
   display: inline-block !important;
 }
+
+/* Hull stat, crew, roles, components - fondo negro */
+.hull-stat,
+.hull-stat *,
+.crew-experience-row,
+.crew-experience-row *,
+.crew-card-title,
+.crew-field,
+.crew-field *,
+.crew-label,
+.crew-static,
+.voidship-table-head,
+.voidship-table-head *,
+.voidship-table-cell,
+.ship-role-block,
+.ship-role-block *,
+.ship-role-description,
+.ship-role-description *,
+.ship-role-label,
+.ship-role-text,
+.ship-role-text *,
+.ship-component-block,
+.ship-component-block *,
+.ship-component-label,
+.ship-component-text,
+.ship-components-space,
+.ship-components-space *,
+.ship-components-label,
+.ship-components-value,
+.modifiers-card,
+.modifiers-card *,
+.modifiers-title,
+.modifiers-options,
+.modifiers-field,
+.modifiers-field *,
+.modifiers-label,
+.modifiers-button,
+.modifiers-buttons,
+.modifiers-checkbox,
+.modifiers-checkbox * {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+}
+
+/* Select y options dentro de modifiers */
+.modifiers-card select,
+.modifiers-card option,
+.modifiers-label select,
+.modifiers-label option {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border-color: var(--terminal-secondary) !important;
+}
+
+/* Checkboxes */
+.modifiers-checkbox input[type="checkbox"] {
+  accent-color: var(--terminal-primary) !important;
+}
+
+css#interface .hull-stat,
+#interface .hull-stat *,
+#interface .crew-experience-row,
+#interface .crew-experience-row *,
+#interface .crew-field,
+#interface .crew-field *,
+#interface .crew-static,
+#interface .voidship-table-head,
+#interface .voidship-table-cell,
+#interface .ship-role-block,
+#interface .ship-role-block *,
+#interface .ship-role-description,
+#interface .ship-role-description *,
+#interface .ship-component-block,
+#interface .ship-component-block *,
+#interface .ship-components-space,
+#interface .ship-components-space * {
+  background-color: #000000 !important;
+  background: #000000 !important;
+  color: #009900 !important;
+}
+
+/* Hull stat, crew, roles, components - fondo negro */
+.hull-stat,
+.hull-stat *,
+.crew-experience-row,
+.crew-experience-row *,
+.crew-card-title,
+.crew-field,
+.crew-field *,
+.crew-label,
+.crew-static,
+.voidship-table-head,
+.voidship-table-head *,
+.voidship-table-cell,
+.ship-role-block,
+.ship-role-block *,
+.ship-role-description,
+.ship-role-description *,
+.ship-role-label,
+.ship-role-text,
+.ship-role-text *,
+.ship-component-block,
+.ship-component-block *,
+.ship-component-label,
+.ship-component-text,
+.ship-components-space,
+.ship-components-space *,
+.ship-components-label,
+.ship-components-value,
+.modifiers-card,
+.modifiers-card *,
+.modifiers-title,
+.modifiers-options,
+.modifiers-field,
+.modifiers-field *,
+.modifiers-label,
+.modifiers-button,
+.modifiers-buttons,
+.modifiers-checkbox,
+.modifiers-checkbox * {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+  color: var(--terminal-primary) !important;
+}
+
+/* Select y options dentro de modifiers */
+.modifiers-card select,
+.modifiers-card option,
+.modifiers-label select,
+.modifiers-label option {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  color: var(--terminal-primary) !important;
+  border-color: var(--terminal-secondary) !important;
+}
+
+/* Checkboxes */
+.modifiers-checkbox input[type="checkbox"] {
+  accent-color: var(--terminal-primary) !important;
+}
