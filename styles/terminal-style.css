@@ -4032,3 +4032,96 @@ button.dice-tray__disadvantage:hover,
 i.fa-solid, .fas { font-weight: 900 !important; }
 i.fa-regular, .far { font-weight: 400 !important; }
 i.fa-brands, .fab { font-weight: 400 !important; }
+
+
+/* Locations - fondo negro forzado */
+.locations,
+.locations *,
+.location,
+.location *,
+.location-values,
+.location-values *,
+.location-values label,
+.location-values a,
+.damage-armour,
+.armour-value {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+.location-values {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.location-values {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.location-values label,
+.location-values a,
+.damage-armour,
+.armour-value {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Points blocks - fondo negro forzado */
+.points-block,
+.points-block *,
+.points-main,
+.points-main *,
+.points-buttons,
+.points-buttons *,
+.points-pips,
+.points-pips *,
+.pip,
+.pip-active,
+.pip-inactive,
+.pip-divider,
+.label,
+.ship-combat-action {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+/* Ship combat card completo */
+.ship-combat-card,
+.ship-combat-card *,
+.ship-combat-header,
+.ship-combat-header *,
+.ship-diagram,
+.ship-diagram *,
+.ship-side,
+.ship-side *,
+.ship-stat-block,
+.ship-stat-block *,
+.ship-input-pair,
+.ship-input-pair *,
+.ship-input-group,
+.ship-input-group *,
+.ship-stat-label,
+.ship-input-label,
+.ship-side-label {
+  background-color: var(--terminal-bg) !important;
+  background: var(--terminal-bg) !important;
+  background-image: none !important;
+}
+
+.pip-divider {
+  background-color: var(--terminal-primary) !important;
+  background: var(--terminal-primary) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+}
